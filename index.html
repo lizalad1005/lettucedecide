@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LettuceDecide</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Your week of meals, decided by Drex</p>
+        <h1>Lettuce<span>Decide</span></h1>
+        <p class="subtitle">Turn recipe cards into a calmer week of cooking.</p>
+      </header>
+
+      <section class="setup-card" aria-labelledby="setup-title">
+        <div>
+          <p class="eyebrow">Step 1</p>
+          <h2 id="setup-title">Add your recipe cards</h2>
+          <p class="muted">Paste a few recipes below. Drex will organize them into a weekly plan.</p>
+        </div>
+        <textarea id="recipe-input" rows="8" placeholder="Example:\nCreamy tomato pasta — pasta, tomatoes, cream, garlic\nChicken tacos — chicken, tortillas, lime, cabbage\nChickpea curry — chickpeas, coconut milk, spinach, rice"></textarea>
+        <button id="plan-button" type="button">Plan my week</button>
+      </section>
+
+      <section id="results" class="results" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Drex decided</p>
+            <h2>Your weekly plan</h2>
+          </div>
+          <button id="reset-button" class="secondary-button" type="button">Start over</button>
+        </div>
+        <div id="meal-plan" class="meal-grid"></div>
+        <div class="lower-grid">
+          <section class="panel">
+            <p class="eyebrow">One trip, less waste</p>
+            <h2>Shopping list</h2>
+            <ul id="shopping-list"></ul>
+          </section>
+          <section class="panel ask-panel">
+            <p class="eyebrow">Ask Lettuce</p>
+            <h2>What should we change?</h2>
+            <div id="chat-log" class="chat-log" aria-live="polite">
+              <p class="assistant-message">I balanced variety and ingredient reuse. Ask me to swap a meal or explain the plan.</p>
+            </div>
+            <form id="ask-form">
+              <input id="ask-input" type="text" placeholder="Make Wednesday vegetarian…" aria-label="Ask Lettuce a question" />
+              <button type="submit">Ask</button>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
