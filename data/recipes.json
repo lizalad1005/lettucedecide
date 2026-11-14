@@ -19,21 +19,27 @@
   },
   {
     "id": "mini-ghevar",
-    "name": "Mini Ghevar",
+    "name": "Mini Ghevar Bites",
     "image": "./public/recipes/MiniGhevar.jpeg",
-    "ingredients": ["flour", "sugar", "ghee", "milk"],
+    "ingredients": ["maida - 1/2 cup", "melted ghee - 2 tbsp", "ice-cold water - 1/2 cup", "cold milk - 1 tbsp", "lemon juice - a few drops", "ghee for greasing", "sugar - 1/4 cup", "water - 2 tbsp", "saffron or cardamom", "rabri for topping", "chopped almonds and pistachios"],
+    "steps": ["Whisk the ghee until creamy, then gradually mix in maida, cold milk, and ice-cold water to create a smooth, thin batter.", "Rest the batter for 15-20 minutes.", "Grease a heated appe pan with ghee, add a little batter to each cavity, and cook on medium-low heat until golden and crisp on both sides.", "Prepare a slightly sticky sugar syrup with sugar, water, and saffron or cardamom.", "Drizzle syrup over the ghevar bites and finish with rabri, nuts, and saffron."],
     "diet": ["vegetarian"],
     "prepMinutes": 45,
-    "mealType": "dessert"
+    "mealType": "dessert",
+    "servings": "8-10 ghevar bites",
+    "openingText": "Ghevar in an Appe Pan—No Mould Needed!"
   },
   {
     "id": "rabdi",
-    "name": "Rabdi",
+    "name": "Easy Milk Powder Rabri",
     "image": "./public/recipes/Rabdi.jpeg",
-    "ingredients": ["milk", "sugar", "cardamom", "pistachios"],
+    "ingredients": ["full-fat milk - 1 cup", "milk powder - 2 tbsp", "condensed milk - 2 tbsp", "chopped almonds - 1 tbsp", "cardamom powder - a pinch (optional)"],
+    "steps": ["Mix milk powder with 2-3 tbsp milk to make a smooth paste.", "Heat the remaining milk on low heat, add the milk-powder mixture, and simmer for 8-10 minutes while stirring.", "Add condensed milk and cook for 3-4 minutes until creamy and slightly thick.", "Add chopped almonds and cardamom powder.", "Serve warm or refrigerate and serve chilled."],
     "diet": ["vegetarian"],
     "prepMinutes": 40,
-    "mealType": "dessert"
+    "mealType": "dessert",
+    "servings": "1 cup",
+    "openingText": "Easy Rabri with Just 4 Simple Ingredients"
   },
   {
     "id": "tacos",
