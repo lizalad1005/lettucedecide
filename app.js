@@ -7,6 +7,7 @@ const shoppingList = document.querySelector("#shopping-list");
 const askForm = document.querySelector("#ask-form");
 const askInput = document.querySelector("#ask-input");
 const chatLog = document.querySelector("#chat-log");
+const decisionSummary = document.querySelector("#decision-summary");
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const fallbackRecipes = [
@@ -17,6 +18,8 @@ const fallbackRecipes = [
   { name: "Tacos", ingredients: ["tortillas", "beans", "cabbage", "lime"], image: "/recipes/Taco.jpeg" },
   { name: "Stuffed garlic bread", ingredients: ["bread", "garlic", "butter", "cheese"], image: "/recipes/WheatstuffedGarlicBread.jpeg" },
 ];
+
+let activeRecipes = fallbackRecipes;
 
 recipeInput.value = fallbackRecipes.map((recipe) => `${recipe.name} — ${recipe.ingredients.join(", ")}`).join("\n");
 
@@ -34,6 +37,7 @@ function parseRecipes() {
 }
 
 function renderPlan(recipes) {
+  activeRecipes = recipes;
   mealPlan.innerHTML = days.map((day, index) => {
     const recipe = recipes[index % recipes.length];
     return `<article class="meal-card"><img src="${recipe.image}" alt="${recipe.name}" /><div class="meal-card-content"><small>${day}</small><h3>${recipe.name}</h3></div></article>`;
@@ -41,16 +45,45 @@ function renderPlan(recipes) {
 
   const ingredients = [...new Set(recipes.flatMap((recipe) => recipe.ingredients.map((item) => item.toLowerCase())))];
   shoppingList.innerHTML = ingredients.map((item) => `<li>${item}</li>`).join("");
+  decisionSummary.textContent = `I chose ${recipes.length} recipes and repeated them strategically so your week has variety without creating a huge shopping trip.`;
   results.hidden = false;
   results.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 planButton.addEventListener("click", () => renderPlan(parseRecipes()));
 resetButton.addEventListener("click", () => { results.hidden = true; recipeInput.focus(); });
+
+function addMessage(type, message) {
+  const paragraph = document.createElement("p");
+  paragraph.className = type === "user" ? "user-message" : "assistant-message";
+  paragraph.textContent = message;
+  chatLog.appendChild(paragraph);
+  paragraph.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
 askForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const question = askInput.value.trim();
   if (!question) return;
-  chatLog.insertAdjacentHTML("beforeend", `<p class="user-message">${question}</p><p class="assistant-message">I’d make that adjustment while keeping the shopping list compact. This is where the Drex decision layer will connect.</p>`);
+  addMessage("user", question);
+  const normalizedQuestion = question.toLowerCase();
+  let response = "I’d keep the plan as-is while protecting variety and ingredient reuse.";
+
+  if (normalizedQuestion.includes("vegetarian") || normalizedQuestion.includes("veggie")) {
+    const vegetarianRecipes = activeRecipes.filter((recipe) => !/chicken|beef|pork|fish|shrimp|meat/i.test(recipe.name));
+    renderPlan(vegetarianRecipes.length ? vegetarianRecipes : fallbackRecipes.filter((recipe) => recipe.name !== "Margherita chicken pasta"));
+    decisionSummary.textContent = "I removed the meat-based option and rebuilt the week around vegetarian recipes.";
+    response = "Done — I rebuilt the plan around vegetarian recipes and refreshed the shopping list.";
+  } else if (normalizedQuestion.includes("swap") || normalizedQuestion.includes("change")) {
+    const rotatedRecipes = [...activeRecipes.slice(1), activeRecipes[0]];
+    renderPlan(rotatedRecipes);
+    response = "Done — I swapped the meal order while keeping the ingredient list compact.";
+  } else if (normalizedQuestion.includes("shop") || normalizedQuestion.includes("buy") || normalizedQuestion.includes("ingredient")) {
+    response = "Your shopping list is grouped below the meal plan. I combined repeated ingredients so you can make one efficient trip.";
+  } else if (normalizedQuestion.includes("why") || normalizedQuestion.includes("decide")) {
+    response = "I prioritized variety first, then reused ingredients across meals to reduce waste and keep prep manageable.";
+  }
+
+  addMessage("assistant", response);
   askInput.value = "";
 });

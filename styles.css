@@ -26,6 +26,9 @@ button:hover { background: #1d572b; }
 .secondary-button { background: #e8eee4; color: #276d37; }
 .results { padding-top: 56px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.decision-note { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; padding: 16px 18px; border-left: 4px solid #61a951; border-radius: 14px; background: #eaf3e4; color: #31563a; }
+.decision-note p { margin: 4px 0 0; color: #5c7160; font-size: .92rem; }
+.decision-icon { display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; border-radius: 50%; background: #276d37; color: #fff; }
 .meal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .meal-card { min-height: 210px; overflow: hidden; border-radius: 18px; background: #276d37; color: white; }
 .meal-card:nth-child(2n) { background: #dcebd1; color: #203027; }
