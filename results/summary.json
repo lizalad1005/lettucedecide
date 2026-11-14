@@ -1,0 +1,28 @@
+{
+  "Drex": {
+    "decisions": 107,
+    "errors": 0,
+    "accuracy_pct": 100.0,
+    "accuracy_by_task_pct": {
+      "store_section": 100.0,
+      "vegetarian": 100.0,
+      "weekday_friendly": 100.0
+    },
+    "invalid_answers": 0,
+    "avg_latency_ms": 338,
+    "cost_per_1k_usd": null
+  },
+  "DeepInfra Qwen/Qwen3.8-27B": {
+    "decisions": 107,
+    "errors": 0,
+    "accuracy_pct": 100.0,
+    "accuracy_by_task_pct": {
+      "store_section": 100.0,
+      "vegetarian": 100.0,
+      "weekday_friendly": 100.0
+    },
+    "invalid_answers": 0,
+    "avg_latency_ms": 1506,
+    "cost_per_1k_usd": 0.1182
+  }
+}

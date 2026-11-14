@@ -173,7 +173,9 @@ def summarize(rows):
             "accuracy_by_task_pct": per_task,
             "invalid_answers": sum(1 for r in answered if not r["valid"]),
             "avg_latency_ms": round(1000 * sum(latencies) / len(latencies)) if latencies else None,
-            "cost_per_1k_usd": round(1000 * sum(r["cost_usd"] for r in answered) / len(answered), 4) if answered else None,
+            # None when the API reported no cost at all, so a missing price never reads as "free".
+            "cost_per_1k_usd": (round(1000 * sum(r["cost_usd"] for r in answered) / len(answered), 4)
+                                if answered and any(r["cost_usd"] for r in answered) else None),
         }
     return summary
 
@@ -221,11 +223,12 @@ def main():
     for label, key, fmt in [("Accuracy", "accuracy_pct", "{}%"), ("Avg latency", "avg_latency_ms", "{} ms"),
                             ("Cost / 1k decisions", "cost_per_1k_usd", "${}"),
                             ("Invalid answers", "invalid_answers", "{}"), ("Request errors", "errors", "{}")]:
-        cells = [fmt.format(summary[m][key]) if summary[m][key] is not None else "n/a" for m in models]
+        cells = [fmt.format(summary[m][key]) if summary[m][key] is not None else "not reported" for m in models]
         lines.append(f"| {label} | {' | '.join(cells)} |")
     lines.append(f"\n{len(tasks)} decisions per model: {len(STORE_KEY)} store sections, "
                  f"{(len(tasks) - len(STORE_KEY)) // 2} vegetarian, {(len(tasks) - len(STORE_KEY)) // 2} weekday-friendly.")
-    lines.append("LLM cost uses DeepInfra's reported `estimated_cost`; $0 means DeepInfra did not report one.")
+    lines.append("Cost is what each API reported per call (Drex `usage.cost`, DeepInfra `estimated_cost`); "
+                 "\"not reported\" means the API returned no cost. Latency is wall-clock per call, 6 calls in parallel.")
     (RESULTS / "summary.md").write_text("\n".join(lines) + "\n")
     write_chart(summary, RESULTS / "chart.svg")
     print("\n".join(lines))

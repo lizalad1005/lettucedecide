@@ -39,7 +39,20 @@ The benchmark makes 107 decisions per model, one decision per call for both mode
 
 Results are saved in [`results/`](results/): `summary.md` (table), `summary.json`, `benchmark_rows.csv` (every decision), and `chart.svg`.
 
-<!-- Paste results/summary.md here after running the benchmark. -->
+**Result (measured Nov 14, 2026):** Drex matched the LLM's accuracy and answered about 4.5× faster per decision.
+
+| Metric | Drex | DeepInfra Qwen/Qwen3.8-27B |
+|---|---|---|
+| Accuracy | 100.0% | 100.0% |
+| Avg latency | 338 ms | 1506 ms |
+| Cost / 1k decisions | not reported | $0.1182 |
+| Invalid answers | 0 | 0 |
+| Request errors | 0 | 0 |
+
+107 decisions per model: 45 store sections, 31 vegetarian, 31 weekday-friendly.
+Cost is what each API reported per call (Drex `usage.cost`, DeepInfra `estimated_cost`); "not reported" means the API returned no cost. Latency is wall-clock per call, 6 calls in parallel.
+
+![Drex vs LLM benchmark chart](results/chart.svg)
 
 ## Project layout
 
