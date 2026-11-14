@@ -26,6 +26,10 @@ Place photos in `public/recipes/`, for example `public/recipes/pasta.jpg`, and r
 
 Recipe data is stored in [`data/recipes.json`](data/recipes.json), including each dish's image, ingredients, dietary tags, preparation time, and meal type.
 
+## Intern evidence
+
+Project rules for Intern are in [`AGENTS.md`](AGENTS.md), and the required screenshot checklist is in [`docs/intern_evidence.md`](docs/intern_evidence.md). Capture screenshots only from a real Intern session with System 1/Drex and System 2 visible.
+
 The ingredient-photo flow lets users confirm or uncheck the ingredients returned by vision analysis.
 
 ## DeepInfra vision setup
