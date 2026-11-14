@@ -78,7 +78,7 @@ saveFridgeButton.addEventListener("click", () => {
     planButton.disabled = false;
     planButton.textContent = "Plan my week";
   }
-  aiStatus.textContent = `${fridgeInventory.length} fridge items saved for Drex's decisions.`;
+  aiStatus.textContent = `${fridgeInventory.length} fridge items saved for planning.`;
 });
 
 fridgePhoto.addEventListener("change", () => {
@@ -119,14 +119,14 @@ async function callVision(path, files) {
 
 analyzeIngredientsButton.addEventListener("click", async () => {
   analyzeIngredientsButton.disabled = true;
-  aiStatus.textContent = "Drex is reading your ingredient photos…";
+  aiStatus.textContent = "DeepInfra vision is reading your ingredient photos…";
   try {
     const result = await callVision("/api/analyze-ingredients", ingredientFiles);
     renderDetectedItems(result.ingredients || []);
     ingredientsAnalyzed = true;
     planButton.disabled = false;
     planButton.textContent = "Plan my week";
-    aiStatus.textContent = `Drex identified ${result.ingredients?.length || 0} ingredients. Confirm or uncheck them below.`;
+    aiStatus.textContent = `DeepInfra vision identified ${result.ingredients?.length || 0} ingredients. Confirm or uncheck them below.`;
   } catch (error) {
     ingredientsAnalyzed = false;
     planButton.disabled = true;
@@ -139,7 +139,7 @@ analyzeIngredientsButton.addEventListener("click", async () => {
 extractRecipeButton.addEventListener("click", async () => {
   if (!recipeCardFile) return;
   extractRecipeButton.disabled = true;
-  aiStatus.textContent = "Drex is reading the recipe card…";
+  aiStatus.textContent = "DeepInfra vision is reading the recipe card…";
   try {
     const extracted = await callVision("/api/extract-recipe", [recipeCardFile]);
     const recipe = {
@@ -263,10 +263,53 @@ function renderPlan(recipes) {
   const dairy = neededIngredients.filter((item) => /milk|yogurt|cheese|butter|cream|ghee|mozzarella/i.test(item));
   const pantry = neededIngredients.filter((item) => !produce.includes(item) && !dairy.includes(item));
   shoppingList.innerHTML = neededIngredients.length ? `${storeSection("Produce", produce)}${storeSection("Dairy", dairy)}${storeSection("Pantry", pantry)}` : "<li>You already have everything needed.</li>";
+  if (neededIngredients.length) sortShoppingListWithDrex(neededIngredients);
   const inventoryNote = fridgeInventory.length ? ` I left ${fridgeInventory.length} detected fridge items off the list.` : "";
-  decisionSummary.textContent = `I scored each recipe for fridge matches, weekday-friendliness, vegetarian balance, and variety.${inventoryNote}`;
+  decisionSummary.textContent = `I ranked each recipe by how many ingredients you already have, then by prep time, rotating for variety. Drex sorts the shopping list into store sections.${inventoryNote}`;
   results.hidden = false;
   results.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+const storeSectionOrder = ["Produce", "Dairy", "Meat & Fish", "Bakery", "Frozen", "Pantry"];
+let shoppingSortRound = 0;
+
+async function sortShoppingListWithDrex(items) {
+  const round = ++shoppingSortRound;
+  try {
+    const response = await fetch("/api/store-sections", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || "Drex request failed");
+    if (round !== shoppingSortRound) return;
+    const grouped = {};
+    items.forEach((item) => {
+      const decision = result.sections?.[item] || {};
+      const section = storeSectionOrder.includes(decision.section) ? decision.section : "Pantry";
+      (grouped[section] ||= []).push({ item, confidence: decision.confidence });
+    });
+    shoppingList.innerHTML = storeSectionOrder.filter((section) => grouped[section]).map((section) => `
+      <div class="store-section"><strong>${section}</strong><ul>${grouped[section].map(({ item, confidence }) => `<li>${item}${typeof confidence === "number" ? ` <small class="muted">${Math.round(confidence * 100)}%</small>` : ""}</li>`).join("")}</ul></div>
+    `).join("") + `<p class="muted">Store sections chosen by Drex (confidence shown per item).</p>`;
+  } catch (error) {
+    // Without NACE_API_KEY or server.py, keep the rule-based sections already shown.
+  }
+}
+
+async function askDrexIntent(question) {
+  try {
+    const response = await fetch("/api/ask-intent", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question }) });
+    const result = await response.json();
+    return response.ok ? result : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function keywordIntent(normalizedQuestion) {
+  if (normalizedQuestion.includes("vegetarian") || normalizedQuestion.includes("veggie")) return "vegetarian";
+  if (normalizedQuestion.includes("swap") || normalizedQuestion.includes("change")) return "swap";
+  if (normalizedQuestion.includes("shop") || normalizedQuestion.includes("buy") || normalizedQuestion.includes("ingredient")) return "shopping";
+  if (normalizedQuestion.includes("why") || normalizedQuestion.includes("decide")) return "explain";
+  return "other";
 }
 
 recipeGallery.addEventListener("click", (event) => {
@@ -287,7 +330,7 @@ closeRecipeDetail.addEventListener("click", () => { recipeDetail.hidden = true; 
 planButton.addEventListener("click", () => {
   if (fridgeInput.value.trim()) renderFridgeChecklist();
   if (ingredientFiles.length && !ingredientsAnalyzed) {
-    aiStatus.textContent = "Analyze your ingredient photos with Drex first, then plan your week.";
+    aiStatus.textContent = "Analyze your ingredient photos first, then plan your week.";
     aiStatus.scrollIntoView({ behavior: "smooth", block: "center" });
     return;
   }
@@ -303,31 +346,38 @@ function addMessage(type, message) {
   paragraph.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-askForm.addEventListener("submit", (event) => {
+askForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const question = askInput.value.trim();
   if (!question) return;
   addMessage("user", question);
+  askInput.value = "";
   const normalizedQuestion = question.toLowerCase();
   let response = "I’d keep the plan as-is while protecting variety and ingredient reuse.";
+  const drexIntent = await askDrexIntent(question);
+  const intent = drexIntent?.intent || keywordIntent(normalizedQuestion);
+  const intentConfidence = drexIntent?.probabilities?.[intent];
 
-  if (normalizedQuestion.includes("vegetarian") || normalizedQuestion.includes("veggie")) {
+  if (intent === "vegetarian") {
     const vegetarianRecipes = activeRecipes.filter((recipe) => !/chicken|beef|pork|fish|shrimp|meat/i.test(recipe.name));
     renderPlan(chooseWeeklyRecipes(vegetarianRecipes.length ? vegetarianRecipes : recipeCatalog.filter((recipe) => recipe.name !== "Margherita chicken pasta")));
     decisionSummary.textContent = "I removed the meat-based option and rebuilt the week around vegetarian recipes.";
     response = "Done — I rebuilt the plan around vegetarian recipes and refreshed the shopping list.";
-  } else if (normalizedQuestion.includes("swap") || normalizedQuestion.includes("change")) {
+  } else if (intent === "swap") {
     const rotatedRecipes = [...activeRecipes.slice(1), activeRecipes[0]];
     renderPlan(rotatedRecipes);
     response = "Done — I swapped the meal order while keeping the ingredient list compact.";
-  } else if (normalizedQuestion.includes("shop") || normalizedQuestion.includes("buy") || normalizedQuestion.includes("ingredient")) {
+  } else if (intent === "shopping") {
     response = "Your shopping list is grouped below the meal plan. I combined repeated ingredients so you can make one efficient trip.";
-  } else if (normalizedQuestion.includes("why") || normalizedQuestion.includes("decide")) {
+  } else if (intent === "explain") {
     response = "I prioritized variety first, then reused ingredients across meals to reduce waste and keep prep manageable.";
   }
 
+  if (drexIntent?.intent) {
+    const percent = typeof intentConfidence === "number" ? ` (${Math.round(intentConfidence * 100)}% confident)` : "";
+    response += ` — Drex read this as “${intent}”${percent}.`;
+  }
   addMessage("assistant", response);
-  askInput.value = "";
 });
 
 researchButton.addEventListener("click", async () => {

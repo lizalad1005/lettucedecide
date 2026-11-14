@@ -5,6 +5,10 @@ import urllib.error
 import urllib.request
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
+import drex
+
+drex.load_env()
+
 API_URL = "https://api.deepinfra.com/v1/openai/chat/completions"
 MODEL = "Qwen/Qwen3.8-27B"
 KEENABLE_URL = "https://api.keenable.ai/v1/search"
@@ -60,9 +64,27 @@ def keenable_search(query):
         raise RuntimeError(f"KeenAble error {error.code}: {detail[:400]}") from error
 
 
+ASK_INTENTS = {
+    "vegetarian": "make the plan, or one day of it, vegetarian or meat-free",
+    "swap": "swap, change, replace or reorder meals in the plan",
+    "shopping": "a question about the shopping list or what to buy",
+    "explain": "asks why the plan was chosen or how decisions were made",
+    "other": "anything else",
+}
+
+
 class Handler(SimpleHTTPRequestHandler):
+    def do_GET(self):
+        # Never serve dotfiles such as .env or .git from the static file server.
+        if any(part.startswith(".") and part not in (".", "..") for part in self.path.split("?")[0].split("/")):
+            self.send_error(404)
+            return
+        super().do_GET()
+
     def do_POST(self):
-        if self.path not in ("/api/analyze-ingredients", "/api/extract-recipe", "/api/research-recipes"):
+        api_paths = ("/api/analyze-ingredients", "/api/extract-recipe", "/api/research-recipes",
+                     "/api/store-sections", "/api/ask-intent")
+        if self.path not in api_paths:
             self.send_error(404)
             return
         try:
@@ -70,6 +92,18 @@ class Handler(SimpleHTTPRequestHandler):
             if length > 25 * 1024 * 1024:
                 raise RuntimeError("Image upload is too large; use smaller photos.")
             body = json.loads(self.rfile.read(length).decode("utf-8"))
+            if self.path.endswith("store-sections"):
+                self.send_json(200, {"sections": drex.store_sections(body.get("items", []))})
+                return
+            if self.path.endswith("ask-intent"):
+                question = body.get("question", "").strip()
+                answers, _, _ = drex.decide(
+                    "A family is editing their weekly meal plan in LettuceDecide.",
+                    {"intent": drex.choice(f"What does this request ask for? Request: {question}", ASK_INTENTS)},
+                )
+                answer = answers.get("intent") or {}
+                self.send_json(200, {"intent": answer.get("choice"), "probabilities": answer.get("probabilities", {})})
+                return
             if self.path.endswith("research-recipes"):
                 query = body.get("query", "").strip()
                 if not query:
@@ -103,5 +137,6 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print("LettuceDecide running at http://localhost:8000")
-    ThreadingHTTPServer(("localhost", 8000), Handler).serve_forever()
+    port = int(os.environ.get("PORT", "8000"))
+    print(f"LettuceDecide running at http://localhost:{port}")
+    ThreadingHTTPServer(("localhost", port), Handler).serve_forever()
