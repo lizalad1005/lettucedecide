@@ -14,6 +14,9 @@ const ingredientImages = document.querySelector("#ingredient-images");
 const uploadLabel = document.querySelector("#upload-label");
 const detectedItems = document.querySelector("#detected-items");
 const recipeGallery = document.querySelector("#recipe-gallery");
+const fridgeInput = document.querySelector("#fridge-input");
+const saveFridgeButton = document.querySelector("#save-fridge");
+const fridgeChecklist = document.querySelector("#fridge-checklist");
 const analyzeIngredientsButton = document.querySelector("#analyze-ingredients");
 const recipeCardPhoto = document.querySelector("#recipe-card-photo");
 const recipeCardLabel = document.querySelector("#recipe-card-label");
@@ -58,6 +61,20 @@ function renderDetectedItems(items = demoDetectedItems) {
     });
   });
 }
+
+function renderFridgeChecklist() {
+  const items = fridgeInput.value.split("\n").map((item) => item.trim().toLowerCase()).filter(Boolean);
+  fridgeInventory = [...new Set(items)];
+  fridgeChecklist.innerHTML = fridgeInventory.map((item) => `<label class="detected-item"><input type="checkbox" value="${item}" checked /> ${item}</label>`).join("");
+  fridgeChecklist.querySelectorAll("input").forEach((input) => input.addEventListener("change", () => {
+    fridgeInventory = [...fridgeChecklist.querySelectorAll("input:checked")].map((item) => item.value);
+  }));
+}
+
+saveFridgeButton.addEventListener("click", () => {
+  renderFridgeChecklist();
+  aiStatus.textContent = `${fridgeInventory.length} fridge items saved for Drex's decisions.`;
+});
 
 fridgePhoto.addEventListener("change", () => {
   ingredientFiles = [...fridgePhoto.files];
@@ -226,16 +243,20 @@ function renderPlan(recipes) {
       ? `<img src="${recipe.image}" alt="${recipe.name}" />`
       : `<div class="meal-photo-placeholder">Food photo<br />coming soon</div>`;
     const recipeIndex = recipeCatalog.findIndex((item) => item.id === recipe.id);
-    return `<article class="meal-card" data-recipe-index="${recipeIndex >= 0 ? recipeIndex : index}" role="button" tabindex="0" aria-label="View ${recipe.name} recipe">${image}<div class="meal-card-content"><small>${day}</small><h3>${recipe.name}</h3></div></article>`;
+    const matches = recipe.ingredients.filter((ingredient) => fridgeInventory.some((item) => ingredientName(ingredient).includes(item) || item.includes(ingredientName(ingredient)))).length;
+    const confidence = Math.min(98, 62 + matches * 12);
+    return `<article class="meal-card" data-recipe-index="${recipeIndex >= 0 ? recipeIndex : index}" role="button" tabindex="0" aria-label="View ${recipe.name} recipe">${image}<div class="meal-card-content"><small>${day} · ${confidence}% fit</small><h3>${recipe.name}</h3></div></article>`;
   }).join("");
 
   const ingredients = [...new Set(recipes.flatMap((recipe) => recipe.ingredients.map(ingredientName)))];
   const neededIngredients = ingredients.filter((item) => !fridgeInventory.some((available) => item.includes(available) || available.includes(item)));
-  shoppingList.innerHTML = neededIngredients.length
-    ? neededIngredients.map((item) => `<li>${item}</li>`).join("")
-    : "<li>You already have everything needed.</li>";
+  const storeSection = (title, items) => items.length ? `<div class="store-section"><strong>${title}</strong><ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul></div>` : "";
+  const produce = neededIngredients.filter((item) => /tomato|lettuce|cabbage|onion|carrot|spinach|banana|berries|mango|lemon|cucumber|pepper|vegetable|fruit|lime|coriander|mint/i.test(item));
+  const dairy = neededIngredients.filter((item) => /milk|yogurt|cheese|butter|cream|ghee|mozzarella/i.test(item));
+  const pantry = neededIngredients.filter((item) => !produce.includes(item) && !dairy.includes(item));
+  shoppingList.innerHTML = neededIngredients.length ? `${storeSection("Produce", produce)}${storeSection("Dairy", dairy)}${storeSection("Pantry", pantry)}` : "<li>You already have everything needed.</li>";
   const inventoryNote = fridgeInventory.length ? ` I left ${fridgeInventory.length} detected fridge items off the list.` : "";
-  decisionSummary.textContent = `I chose ${recipes.length} recipes by matching your available ingredients, prep time, and variety.${inventoryNote}`;
+  decisionSummary.textContent = `I scored each recipe for fridge matches, weekday-friendliness, vegetarian balance, and variety.${inventoryNote}`;
   results.hidden = false;
   results.scrollIntoView({ behavior: "smooth", block: "start" });
 }
