@@ -42,3 +42,5 @@ python3 server.py
 ```
 
 Open <http://localhost:8000>. Use **Analyze ingredients with Drex** for ingredient photos and **Extract recipe with Drex** for recipe-card photos. The proxy uses DeepInfra's OpenAI-compatible multimodal chat endpoint.
+
+Set `KEENABLE_API_KEY` in the same terminal to enable **Research with KeenAble**. It searches for recipe ideas and substitutions through KeenAble's authenticated search endpoint; the key is never sent to browser code.

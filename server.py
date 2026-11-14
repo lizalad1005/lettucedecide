@@ -7,6 +7,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 API_URL = "https://api.deepinfra.com/v1/openai/chat/completions"
 MODEL = "Qwen/Qwen3.8-27B"
+KEENABLE_URL = "https://api.keenable.ai/v1/search"
 
 
 def deepinfra_request(images, prompt):
@@ -40,9 +41,28 @@ def deepinfra_request(images, prompt):
     return json.loads(text)
 
 
+def keenable_search(query):
+    api_key = os.environ.get("KEENABLE_API_KEY")
+    if not api_key:
+        raise RuntimeError("KEENABLE_API_KEY is not set")
+    payload = {"query": query, "mode": "pro", "max_results": 5, "snippet_max_length": 240}
+    request = urllib.request.Request(
+        KEENABLE_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"X-API-Key": api_key, "Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as error:
+        detail = error.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"KeenAble error {error.code}: {detail[:400]}") from error
+
+
 class Handler(SimpleHTTPRequestHandler):
     def do_POST(self):
-        if self.path not in ("/api/analyze-ingredients", "/api/extract-recipe"):
+        if self.path not in ("/api/analyze-ingredients", "/api/extract-recipe", "/api/research-recipes"):
             self.send_error(404)
             return
         try:
@@ -50,6 +70,12 @@ class Handler(SimpleHTTPRequestHandler):
             if length > 25 * 1024 * 1024:
                 raise RuntimeError("Image upload is too large; use smaller photos.")
             body = json.loads(self.rfile.read(length).decode("utf-8"))
+            if self.path.endswith("research-recipes"):
+                query = body.get("query", "").strip()
+                if not query:
+                    raise RuntimeError("Enter a research question first.")
+                self.send_json(200, keenable_search(query))
+                return
             images = body.get("images", [])
             if not images:
                 raise RuntimeError("Please upload at least one image.")

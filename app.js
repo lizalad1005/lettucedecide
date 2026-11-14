@@ -22,6 +22,7 @@ const aiStatus = document.querySelector("#ai-status");
 const recipeDetail = document.querySelector("#recipe-detail");
 const recipeDetailContent = document.querySelector("#recipe-detail-content");
 const closeRecipeDetail = document.querySelector("#close-recipe-detail");
+const researchButton = document.querySelector("#research-button");
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const fallbackRecipes = [
@@ -297,4 +298,25 @@ askForm.addEventListener("submit", (event) => {
 
   addMessage("assistant", response);
   askInput.value = "";
+});
+
+researchButton.addEventListener("click", async () => {
+  const query = askInput.value.trim() || `recipe ideas using ${fridgeInventory.join(", ") || "seasonal ingredients"}`;
+  researchButton.disabled = true;
+  addMessage("user", `Research: ${query}`);
+  try {
+    const response = await fetch("/api/research-recipes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query }),
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || "KeenAble request failed");
+    const sources = (result.results || []).slice(0, 3).map((item) => `${item.title} — ${item.url}`).join("\n");
+    addMessage("assistant", sources ? `KeenAble found these sources:\n${sources}` : "KeenAble did not find matching sources.");
+  } catch (error) {
+    addMessage("assistant", `KeenAble research unavailable: ${error.message}`);
+  } finally {
+    researchButton.disabled = false;
+  }
 });
