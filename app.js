@@ -203,6 +203,10 @@ function chooseWeeklyRecipes(recipes) {
   return ranked.slice(0, Math.min(7, ranked.length)).map((item) => item.recipe);
 }
 
+function ingredientName(ingredient) {
+  return ingredient.replace(/\s*[-–—]\s*.*$/, "").trim().toLowerCase();
+}
+
 function renderPlan(recipes) {
   activeRecipes = recipes;
   mealPlan.innerHTML = days.map((day, index) => {
@@ -214,7 +218,7 @@ function renderPlan(recipes) {
     return `<article class="meal-card" data-recipe-index="${recipeIndex >= 0 ? recipeIndex : index}" role="button" tabindex="0" aria-label="View ${recipe.name} recipe">${image}<div class="meal-card-content"><small>${day}</small><h3>${recipe.name}</h3></div></article>`;
   }).join("");
 
-  const ingredients = [...new Set(recipes.flatMap((recipe) => recipe.ingredients.map((item) => item.toLowerCase())))];
+  const ingredients = [...new Set(recipes.flatMap((recipe) => recipe.ingredients.map(ingredientName)))];
   const neededIngredients = ingredients.filter((item) => !fridgeInventory.some((available) => item.includes(available) || available.includes(item)));
   shoppingList.innerHTML = neededIngredients.length
     ? neededIngredients.map((item) => `<li>${item}</li>`).join("")
