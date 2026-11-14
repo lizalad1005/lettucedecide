@@ -213,7 +213,7 @@ def main():
     rows = run("Drex", ask_drex, tasks) + run(f"DeepInfra {LLM_MODEL}", ask_llm, tasks)
     RESULTS.mkdir(exist_ok=True)
     with open(RESULTS / "benchmark_rows.csv", "w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     summary = summarize(rows)
