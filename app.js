@@ -8,6 +8,11 @@ const askForm = document.querySelector("#ask-form");
 const askInput = document.querySelector("#ask-input");
 const chatLog = document.querySelector("#chat-log");
 const decisionSummary = document.querySelector("#decision-summary");
+const fridgePhoto = document.querySelector("#fridge-photo");
+const fridgePreview = document.querySelector("#fridge-preview");
+const fridgeImage = document.querySelector("#fridge-image");
+const uploadLabel = document.querySelector("#upload-label");
+const detectedItems = document.querySelector("#detected-items");
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const fallbackRecipes = [
@@ -20,6 +25,30 @@ const fallbackRecipes = [
 ];
 
 let activeRecipes = fallbackRecipes;
+let fridgeInventory = [];
+
+const demoDetectedItems = ["milk", "garlic", "rice", "butter", "tomatoes"];
+
+function renderDetectedItems() {
+  detectedItems.innerHTML = demoDetectedItems.map((item) => `
+    <label class="detected-item"><input type="checkbox" value="${item}" checked /> ${item}</label>
+  `).join("");
+  fridgeInventory = [...demoDetectedItems];
+  detectedItems.querySelectorAll("input").forEach((input) => {
+    input.addEventListener("change", () => {
+      fridgeInventory = [...detectedItems.querySelectorAll("input:checked")].map((item) => item.value);
+    });
+  });
+}
+
+fridgePhoto.addEventListener("change", () => {
+  const file = fridgePhoto.files[0];
+  if (!file) return;
+  fridgeImage.src = URL.createObjectURL(file);
+  uploadLabel.textContent = file.name;
+  fridgePreview.hidden = false;
+  renderDetectedItems();
+});
 
 recipeInput.value = fallbackRecipes.map((recipe) => `${recipe.name} — ${recipe.ingredients.join(", ")}`).join("\n");
 
@@ -44,8 +73,12 @@ function renderPlan(recipes) {
   }).join("");
 
   const ingredients = [...new Set(recipes.flatMap((recipe) => recipe.ingredients.map((item) => item.toLowerCase())))];
-  shoppingList.innerHTML = ingredients.map((item) => `<li>${item}</li>`).join("");
-  decisionSummary.textContent = `I chose ${recipes.length} recipes and repeated them strategically so your week has variety without creating a huge shopping trip.`;
+  const neededIngredients = ingredients.filter((item) => !fridgeInventory.some((available) => item.includes(available) || available.includes(item)));
+  shoppingList.innerHTML = neededIngredients.length
+    ? neededIngredients.map((item) => `<li>${item}</li>`).join("")
+    : "<li>You already have everything needed.</li>";
+  const inventoryNote = fridgeInventory.length ? ` I left ${fridgeInventory.length} detected fridge items off the list.` : "";
+  decisionSummary.textContent = `I chose ${recipes.length} recipes and repeated them strategically so your week has variety without creating a huge shopping trip.${inventoryNote}`;
   results.hidden = false;
   results.scrollIntoView({ behavior: "smooth", block: "start" });
 }
