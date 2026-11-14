@@ -14,7 +14,7 @@ Then visit <http://localhost:8000>.
 
 ## Recipe photos
 
-Place photos in `public/recipes/`, for example `public/recipes/pasta.jpg`, and reference them from recipe data as `/recipes/pasta.jpg`.
+Place photos in `public/recipes/`, for example `public/recipes/pasta.jpg`, and reference them from recipe data as `./public/recipes/pasta.jpg`.
 
 ## Current MVP
 
