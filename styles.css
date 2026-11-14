@@ -44,6 +44,8 @@ textarea:focus, input:focus { border-color: #61a951; box-shadow: 0 0 0 3px rgba(
 .recipe-photo-card span { display: block; overflow: hidden; padding: 8px; color: #4d5f50; font-size: .75rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
 button { border: 0; border-radius: 999px; background: #276d37; color: white; font-weight: 800; padding: 13px 20px; }
 button:hover { background: #1d572b; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+button:disabled:hover { background: #276d37; }
 .secondary-button { background: #e8eee4; color: #276d37; }
 .results { padding-top: 56px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }

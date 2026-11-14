@@ -65,6 +65,8 @@ fridgePhoto.addEventListener("change", () => {
   fridgePreview.hidden = false;
   ingredientsAnalyzed = false;
   analyzeIngredientsButton.disabled = false;
+  planButton.disabled = true;
+  planButton.textContent = "Analyze ingredients to continue";
 });
 
 recipeCardPhoto.addEventListener("change", () => {
@@ -98,9 +100,12 @@ analyzeIngredientsButton.addEventListener("click", async () => {
     const result = await callVision("/api/analyze-ingredients", ingredientFiles);
     renderDetectedItems(result.ingredients || []);
     ingredientsAnalyzed = true;
+    planButton.disabled = false;
+    planButton.textContent = "Plan my week";
     aiStatus.textContent = `Drex identified ${result.ingredients?.length || 0} ingredients. Confirm or uncheck them below.`;
   } catch (error) {
     ingredientsAnalyzed = false;
+    planButton.disabled = true;
     aiStatus.textContent = `Could not analyze the photos: ${error.message}. Set DEEPINFRA_API_KEY and run server.py.`;
   } finally {
     analyzeIngredientsButton.disabled = false;
