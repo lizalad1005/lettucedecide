@@ -73,6 +73,11 @@ function renderFridgeChecklist() {
 
 saveFridgeButton.addEventListener("click", () => {
   renderFridgeChecklist();
+  if (fridgeInventory.length) {
+    ingredientsAnalyzed = true;
+    planButton.disabled = false;
+    planButton.textContent = "Plan my week";
+  }
   aiStatus.textContent = `${fridgeInventory.length} fridge items saved for Drex's decisions.`;
 });
 

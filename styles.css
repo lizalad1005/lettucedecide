@@ -20,7 +20,7 @@ h2 { margin-bottom: 8px; color: #193b25; letter-spacing: -0.035em; }
 .setup-card, .panel { border: 1px solid #dfe4da; border-radius: 24px; background: rgba(255,255,255,.72); box-shadow: 0 16px 40px rgba(38, 65, 44, .07); }
 .setup-card { display: grid; gap: 18px; padding: clamp(22px, 5vw, 42px); }
 .fridge-upload { display: grid; gap: 14px; padding-top: 8px; }
-#fridge-photo-flow { display: none; }
+#fridge-photo-flow { display: grid; }
 .fridge-checklist { display: grid; gap: 12px; padding-top: 8px; border-top: 1px solid #e2e9df; }
 .fridge-checklist h2 { margin-bottom: 0; }
 .upload-dropzone { display: flex; align-items: center; gap: 12px; min-height: 72px; padding: 14px 18px; border: 1px dashed #94b88f; border-radius: 16px; background: #f1f7ed; color: #276d37; font-weight: 800; cursor: pointer; }
