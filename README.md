@@ -21,7 +21,7 @@ Place photos in `public/recipes/`, for example `public/recipes/pasta.jpg`, and r
 - Paste recipe cards
 - Generate a seven-day meal plan
 - Combine ingredients into a shopping list
-- Upload a refrigerator photo and remove ingredients already on hand
+- Upload ingredient photos and remove ingredients already on hand
 - Ask Lettuce follow-up questions
 
-The refrigerator-photo flow currently uses a transparent demo detection list that the user can confirm or uncheck. It is ready for a vision-model API connection in the next iteration.
+The ingredient-photo flow currently uses a transparent demo detection list that the user can confirm or uncheck. It is ready for a vision-model API connection in the next iteration.

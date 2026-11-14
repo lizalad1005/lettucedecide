@@ -10,7 +10,7 @@ const chatLog = document.querySelector("#chat-log");
 const decisionSummary = document.querySelector("#decision-summary");
 const fridgePhoto = document.querySelector("#fridge-photo");
 const fridgePreview = document.querySelector("#fridge-preview");
-const fridgeImage = document.querySelector("#fridge-image");
+const ingredientImages = document.querySelector("#ingredient-images");
 const uploadLabel = document.querySelector("#upload-label");
 const detectedItems = document.querySelector("#detected-items");
 const recipeGallery = document.querySelector("#recipe-gallery");
@@ -43,10 +43,10 @@ function renderDetectedItems() {
 }
 
 fridgePhoto.addEventListener("change", () => {
-  const file = fridgePhoto.files[0];
-  if (!file) return;
-  fridgeImage.src = URL.createObjectURL(file);
-  uploadLabel.textContent = file.name;
+  const files = [...fridgePhoto.files];
+  if (!files.length) return;
+  ingredientImages.innerHTML = files.map((file) => `<img src="${URL.createObjectURL(file)}" alt="Ingredient photo: ${file.name}" />`).join("");
+  uploadLabel.textContent = `${files.length} ingredient photo${files.length === 1 ? "" : "s"} selected`;
   fridgePreview.hidden = false;
   renderDetectedItems();
 });

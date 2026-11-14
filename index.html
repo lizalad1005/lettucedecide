@@ -28,18 +28,18 @@
         <div class="fridge-upload">
           <div>
             <p class="eyebrow">Optional but powerful</p>
-            <h2>Show Drex your refrigerator</h2>
-            <p class="muted">Upload a photo so the shopping list can skip ingredients you already have.</p>
+            <h2>Show Drex your ingredients</h2>
+            <p class="muted">Upload ingredient photos so the shopping list can skip what you already have.</p>
           </div>
           <label class="upload-dropzone" for="fridge-photo">
             <span class="upload-icon">＋</span>
-            <span id="upload-label">Choose a refrigerator photo</span>
-            <input id="fridge-photo" type="file" accept="image/*" />
+            <span id="upload-label">Choose ingredient photos</span>
+            <input id="fridge-photo" type="file" accept="image/*" multiple />
           </label>
           <div id="fridge-preview" class="fridge-preview" hidden>
-            <img id="fridge-image" alt="Uploaded refrigerator" />
+            <div id="ingredient-images" class="ingredient-image-grid"></div>
             <div>
-              <strong>Fridge photo ready</strong>
+              <strong>Ingredient photos ready</strong>
               <p class="muted">Drex found these ingredients for the demo:</p>
               <div id="detected-items" class="detected-items"></div>
             </div>
