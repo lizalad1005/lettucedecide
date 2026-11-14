@@ -28,6 +28,7 @@ const fallbackRecipes = [
 ];
 
 let activeRecipes = fallbackRecipes;
+let recipeCatalog = fallbackRecipes;
 let fridgeInventory = [];
 
 const demoDetectedItems = ["milk", "garlic", "rice", "butter", "tomatoes"];
@@ -54,12 +55,27 @@ fridgePhoto.addEventListener("change", () => {
 });
 
 recipeInput.value = fallbackRecipes.map((recipe) => `${recipe.name} — ${recipe.ingredients.join(", ")}`).join("\n");
-recipeGallery.innerHTML = fallbackRecipes.map((recipe) => `
-  <article class="recipe-photo-card">
-    <img src="${recipe.image}" alt="${recipe.name}" />
-    <span>${recipe.name}</span>
-  </article>
-`).join("");
+function renderRecipeGallery(recipes) {
+  recipeGallery.innerHTML = recipes.map((recipe) => `
+    <article class="recipe-photo-card">
+      ${recipe.image ? `<img src="${recipe.image}" alt="${recipe.name}" />` : `<div class="recipe-photo-placeholder">Photo<br />coming soon</div>`}
+      <span>${recipe.name}</span>
+    </article>
+  `).join("");
+}
+
+renderRecipeGallery(recipeCatalog);
+
+fetch("./data/recipes.json")
+  .then((response) => response.json())
+  .then((recipes) => {
+    recipeCatalog = recipes;
+    recipeInput.value = recipes.map((recipe) => `${recipe.name} — ${recipe.ingredients.join(", ")}`).join("\n");
+    renderRecipeGallery(recipeCatalog);
+  })
+  .catch(() => {
+    // Opening index.html directly still works with the built-in demo recipes.
+  });
 
 function parseRecipes() {
   const lines = recipeInput.value.split("\n").map((line) => line.trim()).filter(Boolean);
@@ -69,7 +85,7 @@ function parseRecipes() {
     return {
       name: namePart.trim() || `Recipe ${index + 1}`,
       ingredients: ingredientsPart.split(",").map((item) => item.trim()).filter(Boolean),
-      image: fallbackRecipes[index % fallbackRecipes.length].image,
+      image: recipeCatalog[index % recipeCatalog.length].image,
     };
   });
 }
@@ -78,7 +94,10 @@ function renderPlan(recipes) {
   activeRecipes = recipes;
   mealPlan.innerHTML = days.map((day, index) => {
     const recipe = recipes[index % recipes.length];
-    return `<article class="meal-card"><img src="${recipe.image}" alt="${recipe.name}" /><div class="meal-card-content"><small>${day}</small><h3>${recipe.name}</h3></div></article>`;
+    const image = recipe.image
+      ? `<img src="${recipe.image}" alt="${recipe.name}" />`
+      : `<div class="meal-photo-placeholder">Food photo<br />coming soon</div>`;
+    return `<article class="meal-card">${image}<div class="meal-card-content"><small>${day}</small><h3>${recipe.name}</h3></div></article>`;
   }).join("");
 
   const ingredients = [...new Set(recipes.flatMap((recipe) => recipe.ingredients.map((item) => item.toLowerCase())))];
@@ -113,7 +132,7 @@ askForm.addEventListener("submit", (event) => {
 
   if (normalizedQuestion.includes("vegetarian") || normalizedQuestion.includes("veggie")) {
     const vegetarianRecipes = activeRecipes.filter((recipe) => !/chicken|beef|pork|fish|shrimp|meat/i.test(recipe.name));
-    renderPlan(vegetarianRecipes.length ? vegetarianRecipes : fallbackRecipes.filter((recipe) => recipe.name !== "Margherita chicken pasta"));
+    renderPlan(vegetarianRecipes.length ? vegetarianRecipes : recipeCatalog.filter((recipe) => recipe.name !== "Margherita chicken pasta"));
     decisionSummary.textContent = "I removed the meat-based option and rebuilt the week around vegetarian recipes.";
     response = "Done — I rebuilt the plan around vegetarian recipes and refreshed the shopping list.";
   } else if (normalizedQuestion.includes("swap") || normalizedQuestion.includes("change")) {
