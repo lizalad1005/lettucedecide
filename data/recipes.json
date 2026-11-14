@@ -70,5 +70,235 @@
     "diet": ["vegetarian"],
     "prepMinutes": 35,
     "mealType": "side"
+  },
+  {
+    "id": "chicken-biryani",
+    "name": "Chicken Biryani",
+    "image": null,
+    "ingredients": ["rice - 1 cup", "chicken - 500 g", "onion - 2", "tomato - 1", "yogurt - 1/2 cup", "ginger-garlic paste - 1 tbsp", "green chili - 2", "biryani masala - 2 tbsp", "turmeric - 1/2 tsp", "red chili powder - 1 tsp", "mint and coriander - 1/2 cup", "oil - 3 tbsp", "salt", "water"],
+    "steps": ["Marinate chicken with yogurt, ginger-garlic paste, spices, and salt for 30 minutes.", "Fry onions until golden, then add chicken and cook until almost done.", "Boil rice until 70% cooked and drain.", "Layer rice over chicken with mint, coriander, and fried onions.", "Cover and cook on low heat for 20 minutes."],
+    "diet": [],
+    "prepMinutes": 70,
+    "mealType": "dinner"
+  },
+  {
+    "id": "pancakes",
+    "name": "Pancakes",
+    "image": null,
+    "ingredients": ["flour - 1 cup", "milk - 3/4 cup", "egg - 1", "sugar - 2 tbsp", "baking powder - 1 tsp", "melted butter - 2 tbsp", "salt"],
+    "steps": ["Mix all ingredients into a smooth batter.", "Pour small portions onto a greased pan.", "Cook until bubbles appear, flip, and cook the other side.", "Serve with syrup or fruit."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 20,
+    "mealType": "breakfast"
+  },
+  {
+    "id": "fresh-salad",
+    "name": "Fresh Salad",
+    "image": null,
+    "ingredients": ["lettuce - 2 cups", "tomato - 1", "cucumber - 1", "lemon juice - 1 tbsp", "olive oil - 1 tbsp", "salt", "pepper"],
+    "steps": ["Chop the vegetables and mix them in a bowl.", "Add lemon juice, olive oil, salt, and pepper.", "Toss and serve fresh."],
+    "diet": ["vegetarian", "vegan"],
+    "prepMinutes": 10,
+    "mealType": "lunch"
+  },
+  {
+    "id": "vegetable-fried-rice",
+    "name": "Vegetable Fried Rice",
+    "image": null,
+    "ingredients": ["cooked rice - 2 cups", "mixed vegetables - 1 cup", "onion - 1", "garlic - 1 tsp", "soy sauce - 1 tbsp", "oil - 2 tbsp", "salt", "pepper"],
+    "steps": ["Sauté onion and garlic in oil.", "Add vegetables and cook for 3-4 minutes.", "Add rice, soy sauce, salt, and pepper.", "Stir-fry on high heat for 3 minutes."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 25,
+    "mealType": "lunch"
+  },
+  {
+    "id": "spaghetti-tomato-sauce",
+    "name": "Spaghetti in Tomato Sauce",
+    "image": null,
+    "ingredients": ["spaghetti - 200 g", "tomatoes - 3", "onion - 1", "garlic - 1 tbsp", "olive oil - 2 tbsp", "chili flakes - 1/2 tsp", "oregano - 1 tsp", "salt"],
+    "steps": ["Boil spaghetti.", "Sauté onion and garlic in oil.", "Add tomatoes and seasoning and cook until thick.", "Mix in spaghetti and serve."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 30,
+    "mealType": "dinner"
+  },
+  {
+    "id": "chicken-noodles",
+    "name": "Chicken Noodles",
+    "image": null,
+    "ingredients": ["noodles - 200 g", "chicken strips - 250 g", "vegetables - 1 cup", "soy sauce - 2 tbsp", "garlic - 1 tsp", "oil - 2 tbsp", "salt", "pepper"],
+    "steps": ["Boil noodles and drain.", "Stir-fry chicken with garlic.", "Add vegetables and cook until tender.", "Add noodles, soy sauce, salt, and pepper and toss well."],
+    "diet": [],
+    "prepMinutes": 30,
+    "mealType": "dinner"
+  },
+  {
+    "id": "vegetable-soup",
+    "name": "Vegetable Soup",
+    "image": null,
+    "ingredients": ["mixed vegetables - 2 cups", "onion - 1", "garlic - 1 tsp", "vegetable stock - 3 cups", "cornflour - 1 tbsp", "salt", "pepper"],
+    "steps": ["Sauté onion and garlic.", "Add vegetables and stock and simmer for 15 minutes.", "Mix cornflour with water, add it to the soup, and cook until slightly thick."],
+    "diet": ["vegetarian", "vegan"],
+    "prepMinutes": 25,
+    "mealType": "lunch"
+  },
+  {
+    "id": "chicken-curry",
+    "name": "Chicken Curry",
+    "image": null,
+    "ingredients": ["chicken - 500 g", "onion - 2", "tomato - 2", "yogurt - 1/2 cup", "ginger-garlic paste - 1 tbsp", "turmeric - 1/2 tsp", "chili powder - 1 tsp", "coriander powder - 1 tsp", "oil - 3 tbsp", "salt"],
+    "steps": ["Fry onions until golden.", "Add ginger-garlic paste and tomatoes.", "Add spices and yogurt.", "Add chicken and cook for 8 minutes.", "Add water, cover, and simmer until chicken is tender."],
+    "diet": [],
+    "prepMinutes": 50,
+    "mealType": "dinner"
+  },
+  {
+    "id": "chole",
+    "name": "Chole",
+    "image": null,
+    "ingredients": ["boiled chickpeas - 2 cups", "onion - 1", "tomato - 2", "ginger-garlic paste - 1 tsp", "chole masala - 1 1/2 tsp", "turmeric - 1/4 tsp", "oil - 2 tbsp", "salt"],
+    "steps": ["Sauté onion, ginger-garlic paste, and tomatoes.", "Add spices and cook until soft.", "Add chickpeas and 1/2 cup water.", "Simmer for 10-15 minutes."],
+    "diet": ["vegetarian", "vegan"],
+    "prepMinutes": 30,
+    "mealType": "dinner"
+  },
+  {
+    "id": "aloo-paratha",
+    "name": "Aloo Paratha",
+    "image": null,
+    "ingredients": ["wheat flour - 2 cups", "boiled potatoes - 3", "onion - 1 small", "green chili - 1", "coriander - 2 tbsp", "chili powder - 1/2 tsp", "salt", "oil"],
+    "steps": ["Make a soft dough with flour and water.", "Mash potatoes with onion, chili, coriander, spices, and salt.", "Stuff the dough with filling and roll gently.", "Cook on a hot pan with oil."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 40,
+    "mealType": "breakfast"
+  },
+  {
+    "id": "vegetable-pasta",
+    "name": "Vegetable Pasta",
+    "image": null,
+    "ingredients": ["pasta - 200 g", "vegetables - 1 1/2 cups", "onion - 1", "garlic - 1 tsp", "tomato sauce - 1 cup", "oregano - 1 tsp", "chili flakes - 1/2 tsp", "oil - 2 tbsp", "salt"],
+    "steps": ["Boil pasta.", "Sauté onion, garlic, and vegetables.", "Add tomato sauce and seasoning.", "Mix in pasta and cook for 2 minutes."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 30,
+    "mealType": "dinner"
+  },
+  {
+    "id": "grilled-cheese-sandwich",
+    "name": "Grilled Cheese Sandwich",
+    "image": null,
+    "ingredients": ["bread - 4 slices", "cheese - 4 slices", "butter - 2 tbsp", "tomato - 1", "pepper"],
+    "steps": ["Butter the bread.", "Add cheese, tomato, and pepper.", "Close the sandwich and toast on a pan until golden and melted."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 15,
+    "mealType": "lunch"
+  },
+  {
+    "id": "masala-omelet",
+    "name": "Masala Omelet",
+    "image": null,
+    "ingredients": ["eggs - 2", "onion - 1/2", "tomato - 1/2", "green chili - 1", "coriander - 1 tbsp", "salt", "pepper", "oil - 1 tsp"],
+    "steps": ["Beat the eggs with all ingredients.", "Heat oil in a pan and pour in the mixture.", "Cook both sides until set."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 15,
+    "mealType": "breakfast"
+  },
+  {
+    "id": "vegetable-cutlets",
+    "name": "Vegetable Cutlets",
+    "image": null,
+    "ingredients": ["boiled potatoes - 2", "mixed vegetables - 1 cup", "breadcrumbs - 1/2 cup", "chili powder - 1/2 tsp", "garam masala - 1/2 tsp", "salt", "oil"],
+    "steps": ["Mash potatoes and vegetables with spices.", "Shape into patties and coat with breadcrumbs.", "Shallow-fry until golden on both sides."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 35,
+    "mealType": "snack"
+  },
+  {
+    "id": "butter-chicken",
+    "name": "Butter Chicken",
+    "image": null,
+    "ingredients": ["cooked chicken pieces - 400 g", "tomato puree - 1 cup", "butter - 2 tbsp", "cream - 1/4 cup", "ginger-garlic paste - 1 tsp", "chili powder - 1 tsp", "garam masala - 1/2 tsp", "salt"],
+    "steps": ["Melt butter and sauté ginger-garlic paste.", "Add tomato puree and spices and cook until thick.", "Add chicken and cream.", "Simmer for 8 minutes."],
+    "diet": [],
+    "prepMinutes": 30,
+    "mealType": "dinner"
+  },
+  {
+    "id": "dal-tadka",
+    "name": "Dal Tadka",
+    "image": null,
+    "ingredients": ["lentils - 1 cup", "water - 3 cups", "turmeric - 1/2 tsp", "onion - 1", "tomato - 1", "garlic - 1 tsp", "cumin - 1 tsp", "oil or ghee - 2 tbsp", "salt"],
+    "steps": ["Pressure-cook lentils with turmeric, water, and salt.", "Fry cumin, onion, garlic, and tomato in oil.", "Add the tempering to cooked dal and simmer for 5 minutes."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 35,
+    "mealType": "dinner"
+  },
+  {
+    "id": "rajma-rice",
+    "name": "Rajma Rice",
+    "image": null,
+    "ingredients": ["boiled kidney beans - 2 cups", "cooked rice - 2 cups", "onion - 1", "tomatoes - 2", "ginger-garlic paste - 1 tsp", "rajma masala - 1 tsp", "oil - 2 tbsp", "salt"],
+    "steps": ["Cook onion, ginger-garlic paste, and tomatoes.", "Add spices and kidney beans with 1/2 cup water.", "Simmer for 15 minutes and serve with rice."],
+    "diet": ["vegetarian", "vegan"],
+    "prepMinutes": 35,
+    "mealType": "dinner"
+  },
+  {
+    "id": "vegetable-pizza",
+    "name": "Vegetable Pizza",
+    "image": null,
+    "ingredients": ["pizza base - 1", "pizza sauce - 3 tbsp", "mozzarella cheese - 1 cup", "onion - 1/2", "bell pepper - 1/2", "corn - 1/4 cup", "oregano", "chili flakes"],
+    "steps": ["Spread sauce on the base.", "Add vegetables, cheese, oregano, and chili flakes.", "Bake at 200°C for 10-15 minutes."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 25,
+    "mealType": "dinner"
+  },
+  {
+    "id": "chicken-tacos",
+    "name": "Chicken Tacos",
+    "image": null,
+    "ingredients": ["taco shells - 6", "cooked chicken - 300 g", "lettuce - 1 cup", "tomato - 1", "cheese - 1/2 cup", "salsa - 1/2 cup", "chili powder - 1/2 tsp"],
+    "steps": ["Season and heat the chicken.", "Fill taco shells with chicken, lettuce, tomato, cheese, and salsa.", "Serve immediately."],
+    "diet": [],
+    "prepMinutes": 20,
+    "mealType": "dinner"
+  },
+  {
+    "id": "vegetable-maggi",
+    "name": "Vegetable Maggi",
+    "image": null,
+    "ingredients": ["instant noodles - 2 packets", "vegetables - 1 cup", "onion - 1", "water - 2 cups", "oil - 1 tbsp", "chili sauce - 1 tbsp"],
+    "steps": ["Sauté onion and vegetables in oil.", "Add water and noodle seasoning and bring to a boil.", "Add noodles and cook for 2-3 minutes.", "Add chili sauce."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 15,
+    "mealType": "lunch"
+  },
+  {
+    "id": "greek-yogurt-parfait",
+    "name": "Greek Yogurt Parfait",
+    "image": null,
+    "ingredients": ["yogurt - 1 cup", "granola - 1/2 cup", "banana - 1", "berries - 1/2 cup", "honey - 1 tbsp", "nuts - 2 tbsp"],
+    "steps": ["Layer yogurt, fruits, granola, nuts, and honey in a glass.", "Repeat the layers and serve chilled."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 10,
+    "mealType": "breakfast"
+  },
+  {
+    "id": "chocolate-mug-cake",
+    "name": "Chocolate Mug Cake",
+    "image": null,
+    "ingredients": ["flour - 4 tbsp", "sugar - 2 tbsp", "cocoa powder - 1 tbsp", "baking powder - 1/4 tsp", "milk - 3 tbsp", "oil - 1 tbsp", "chocolate chips - 1 tbsp"],
+    "steps": ["Mix all ingredients in a microwave-safe mug.", "Microwave for 60-90 seconds.", "Cool for one minute before serving."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 5,
+    "mealType": "dessert"
+  },
+  {
+    "id": "mango-smoothie",
+    "name": "Mango Smoothie",
+    "image": null,
+    "ingredients": ["mango pulp - 1 cup", "milk - 1 cup", "yogurt - 1/2 cup", "sugar or honey - 1 tbsp", "ice cubes"],
+    "steps": ["Blend all ingredients until smooth.", "Serve chilled."],
+    "diet": ["vegetarian"],
+    "prepMinutes": 5,
+    "mealType": "breakfast"
   }
 ]
