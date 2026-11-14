@@ -26,4 +26,15 @@ Place photos in `public/recipes/`, for example `public/recipes/pasta.jpg`, and r
 
 Recipe data is stored in [`data/recipes.json`](data/recipes.json), including each dish's image, ingredients, dietary tags, preparation time, and meal type.
 
-The ingredient-photo flow currently uses a transparent demo detection list that the user can confirm or uncheck. It is ready for a vision-model API connection in the next iteration.
+The ingredient-photo flow lets users confirm or uncheck the ingredients returned by vision analysis.
+
+## DeepInfra vision setup
+
+The app includes a local Python proxy for DeepInfra so the API key is never exposed in browser code. Set your key in the terminal, then run:
+
+```bash
+export DEEPINFRA_API_KEY="your-key-here"
+python3 server.py
+```
+
+Open <http://localhost:8000>. Use **Analyze ingredients with Drex** for ingredient photos and **Extract recipe with Drex** for recipe-card photos. The proxy uses DeepInfra's OpenAI-compatible multimodal chat endpoint.

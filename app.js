@@ -14,6 +14,11 @@ const ingredientImages = document.querySelector("#ingredient-images");
 const uploadLabel = document.querySelector("#upload-label");
 const detectedItems = document.querySelector("#detected-items");
 const recipeGallery = document.querySelector("#recipe-gallery");
+const analyzeIngredientsButton = document.querySelector("#analyze-ingredients");
+const recipeCardPhoto = document.querySelector("#recipe-card-photo");
+const recipeCardLabel = document.querySelector("#recipe-card-label");
+const extractRecipeButton = document.querySelector("#extract-recipe");
+const aiStatus = document.querySelector("#ai-status");
 const recipeDetail = document.querySelector("#recipe-detail");
 const recipeDetailContent = document.querySelector("#recipe-detail-content");
 const closeRecipeDetail = document.querySelector("#close-recipe-detail");
@@ -33,6 +38,8 @@ const fallbackRecipes = [
 let activeRecipes = fallbackRecipes;
 let recipeCatalog = fallbackRecipes;
 let fridgeInventory = [];
+let ingredientFiles = [];
+let recipeCardFile = null;
 
 const demoDetectedItems = ["milk", "garlic", "rice", "butter", "tomatoes"];
 
@@ -49,12 +56,78 @@ function renderDetectedItems() {
 }
 
 fridgePhoto.addEventListener("change", () => {
-  const files = [...fridgePhoto.files];
-  if (!files.length) return;
-  ingredientImages.innerHTML = files.map((file) => `<img src="${URL.createObjectURL(file)}" alt="Ingredient photo: ${file.name}" />`).join("");
-  uploadLabel.textContent = `${files.length} ingredient photo${files.length === 1 ? "" : "s"} selected`;
+  ingredientFiles = [...fridgePhoto.files];
+  if (!ingredientFiles.length) return;
+  ingredientImages.innerHTML = ingredientFiles.map((file) => `<img src="${URL.createObjectURL(file)}" alt="Ingredient photo: ${file.name}" />`).join("");
+  uploadLabel.textContent = `${ingredientFiles.length} ingredient photo${ingredientFiles.length === 1 ? "" : "s"} selected`;
   fridgePreview.hidden = false;
-  renderDetectedItems();
+  analyzeIngredientsButton.disabled = false;
+});
+
+recipeCardPhoto.addEventListener("change", () => {
+  recipeCardFile = recipeCardPhoto.files[0] || null;
+  if (!recipeCardFile) return;
+  recipeCardLabel.textContent = recipeCardFile.name;
+  extractRecipeButton.disabled = false;
+});
+
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function callVision(path, files) {
+  const images = await Promise.all(files.map(fileToDataUrl));
+  const response = await fetch(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ images }) });
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || "DeepInfra request failed");
+  return result;
+}
+
+analyzeIngredientsButton.addEventListener("click", async () => {
+  analyzeIngredientsButton.disabled = true;
+  aiStatus.textContent = "Drex is reading your ingredient photos…";
+  try {
+    const result = await callVision("/api/analyze-ingredients", ingredientFiles);
+    renderDetectedItems(result.ingredients || []);
+    aiStatus.textContent = `Drex identified ${result.ingredients?.length || 0} ingredients. Confirm or uncheck them below.`;
+  } catch (error) {
+    aiStatus.textContent = `Could not analyze the photos: ${error.message}. Set DEEPINFRA_API_KEY and run server.py.`;
+  } finally {
+    analyzeIngredientsButton.disabled = false;
+  }
+});
+
+extractRecipeButton.addEventListener("click", async () => {
+  if (!recipeCardFile) return;
+  extractRecipeButton.disabled = true;
+  aiStatus.textContent = "Drex is reading the recipe card…";
+  try {
+    const extracted = await callVision("/api/extract-recipe", [recipeCardFile]);
+    const recipe = {
+      id: `scanned-${Date.now()}`,
+      name: extracted.name || "Scanned recipe",
+      image: URL.createObjectURL(recipeCardFile),
+      ingredients: extracted.ingredients || [],
+      steps: extracted.steps || [],
+      diet: [],
+      prepMinutes: 30,
+      mealType: "dinner",
+      servings: extracted.servings || "",
+    };
+    recipeCatalog.unshift(recipe);
+    recipeInput.value = recipeCatalog.map((item) => `${item.name} — ${item.ingredients.join(", ")}`).join("\n");
+    renderRecipeGallery(recipeCatalog);
+    aiStatus.textContent = `${recipe.name} was extracted and added to your recipe cards.`;
+  } catch (error) {
+    aiStatus.textContent = `Could not read the recipe card: ${error.message}. Set DEEPINFRA_API_KEY and run server.py.`;
+  } finally {
+    extractRecipeButton.disabled = false;
+  }
 });
 
 recipeInput.value = fallbackRecipes.map((recipe) => `${recipe.name} — ${recipe.ingredients.join(", ")}`).join("\n");

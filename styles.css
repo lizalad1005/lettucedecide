@@ -23,6 +23,8 @@ h2 { margin-bottom: 8px; color: #193b25; letter-spacing: -0.035em; }
 .upload-dropzone { display: flex; align-items: center; gap: 12px; min-height: 72px; padding: 14px 18px; border: 1px dashed #94b88f; border-radius: 16px; background: #f1f7ed; color: #276d37; font-weight: 800; cursor: pointer; }
 .upload-dropzone:hover { background: #e6f1df; }
 .upload-dropzone input { display: none; }
+.recipe-card-upload { border-top: 1px solid #e2e9df; padding-top: 24px; }
+.ai-status { min-height: 1.2em; margin: 0; color: #56705a; font-size: .88rem; }
 .upload-icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: #276d37; color: #fff; font-size: 1.4rem; font-weight: 400; }
 .fridge-preview { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; padding: 14px; border-radius: 16px; background: #eef4e9; }
 .ingredient-image-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
