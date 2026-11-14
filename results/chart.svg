@@ -10,9 +10,9 @@
 <text x="556.0" y="128">100.0</text>
 <text x="20" y="192" font-weight="bold">Avg latency (ms)</text>
 <text x="20" y="222">Drex</text>
-<rect x="170" y="204" width="85.3" height="26" fill="#2f7d32" rx="3"/>
-<text x="261.3" y="222">338</text>
+<rect x="170" y="204" width="82.9" height="26" fill="#2f7d32" rx="3"/>
+<text x="258.9" y="222">335</text>
 <text x="20" y="258">DeepInfra Qwen/Qwen3.8-27B</text>
 <rect x="170" y="240" width="380.0" height="26" fill="#8a6d3b" rx="3"/>
-<text x="556.0" y="258">1506</text>
+<text x="556.0" y="258">1535</text>
 </svg>

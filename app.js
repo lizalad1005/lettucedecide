@@ -29,14 +29,8 @@ const researchButton = document.querySelector("#research-button");
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const fallbackRecipes = [
-  { name: "Handvo", ingredients: ["rice", "lentils", "yogurt", "carrot"], image: "./public/recipes/Handvo.jpeg" },
   { name: "Margherita chicken pasta", ingredients: ["chicken", "pasta", "tomatoes", "mozzarella"], image: "./public/recipes/Margherita Chiken paasta.jpeg" },
   { name: "Mini Ghevar", ingredients: ["flour", "sugar", "ghee", "milk"], image: "./public/recipes/MiniGhevar.jpeg" },
-  { name: "Rabdi", ingredients: ["milk", "sugar", "cardamom", "pistachios"], image: "./public/recipes/Rabdi.jpeg" },
-  { name: "Tacos", ingredients: ["tortillas", "beans", "cabbage", "lime"], image: "./public/recipes/Taco.jpeg" },
-  { name: "Stuffed garlic bread", ingredients: ["bread", "garlic", "butter", "cheese"], image: "./public/recipes/WheatstuffedGarlicBread.jpeg" },
-  { name: "Herbed stuffed garlic bread", ingredients: ["bread", "garlic", "butter", "mixed herbs"], image: "./public/recipes/WheatstuffedGarlicBread1.jpeg" },
-  { name: "Cheesy wheat garlic bread", ingredients: ["wheat bread", "garlic", "butter", "cheese"], image: "./public/recipes/WheatstuffedGarlicBread2.jpeg" },
 ];
 
 let activeRecipes = fallbackRecipes;

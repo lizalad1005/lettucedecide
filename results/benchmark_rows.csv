@@ -1,429 +1,381 @@
 model,task,item,truth,answer,correct,valid,latency_s,cost_usd,confidence,raw,error
-Drex,store_section,spinach,Produce,Produce,True,True,0.360456875,0.0,0.969762696349267,Produce,
-Drex,store_section,tomatoes,Produce,Produce,True,True,0.44072020900000003,0.0,0.9824286784108706,Produce,
-Drex,store_section,onion,Produce,Produce,True,True,0.43484187500000004,0.0,0.9908615302916893,Produce,
-Drex,store_section,garlic,Produce,Produce,True,True,0.42929425000000004,0.0,0.9581298657467275,Produce,
-Drex,store_section,ginger,Produce,Produce,True,True,0.44746445799999995,0.0,0.7852117730039175,Produce,
-Drex,store_section,cilantro,Produce,Produce,True,True,0.47575225,0.0,0.9880138955965952,Produce,
-Drex,store_section,lime,Produce,Produce,True,True,0.34202562499999994,0.0,0.9885520073828173,Produce,
-Drex,store_section,avocado,Produce,Produce,True,True,0.36830700000000005,0.0,0.9936981084047604,Produce,
-Drex,store_section,bell pepper,Produce,Produce,True,True,0.290128625,0.0,0.9975160483342814,Produce,
-Drex,store_section,potatoes,Produce,Produce,True,True,0.27319841699999997,0.0,0.9714610158092499,Produce,
-Drex,store_section,mango,Produce,Produce,True,True,0.32207779099999995,0.0,0.9975867868472671,Produce,
-Drex,store_section,mint,Produce,Produce,True,True,0.34412599999999993,0.0,0.7901013077788763,Produce,
-Drex,store_section,cheddar,Dairy,Dairy,True,True,0.30185008299999994,0.0,0.9951831522847396,Dairy,
-Drex,store_section,butter,Dairy,Dairy,True,True,0.32162179199999996,0.0,0.987270147608174,Dairy,
-Drex,store_section,greek yogurt,Dairy,Dairy,True,True,0.28569849999999997,0.0,0.9935290512916019,Dairy,
-Drex,store_section,paneer,Dairy,Dairy,True,True,0.24609141600000006,0.0,0.9885778217862197,Dairy,
-Drex,store_section,mozzarella,Dairy,Dairy,True,True,0.29645212499999984,0.0,0.9738106942735154,Dairy,
-Drex,store_section,milk,Dairy,Dairy,True,True,0.348555167,0.0,0.9930832582706719,Dairy,
-Drex,store_section,eggs,Dairy,Dairy,True,True,0.4878360829999999,0.0,0.9843524123606916,Dairy,
-Drex,store_section,ghee,Dairy,Dairy,True,True,0.2610410409999999,0.0,0.983144031230805,Dairy,
-Drex,store_section,heavy cream,Dairy,Dairy,True,True,0.39140874999999986,0.0,0.9951528937515556,Dairy,
-Drex,store_section,salmon,Meat & Fish,Meat & Fish,True,True,0.2750882920000002,0.0,0.9802791081624178,Meat & Fish,
-Drex,store_section,chicken thighs,Meat & Fish,Meat & Fish,True,True,0.6419790409999999,0.0,0.9914875121702805,Meat & Fish,
-Drex,store_section,ground beef,Meat & Fish,Meat & Fish,True,True,0.2777066250000002,0.0,0.9866485460249319,Meat & Fish,
-Drex,store_section,shrimp,Meat & Fish,Meat & Fish,True,True,0.331069375,0.0,0.943555684730415,Meat & Fish,
-Drex,store_section,bacon,Meat & Fish,Meat & Fish,True,True,0.371404125,0.0,0.9147632980057704,Meat & Fish,
-Drex,store_section,rice,Pantry,Pantry,True,True,0.28803391700000014,0.0,0.9974980814410962,Pantry,
-Drex,store_section,lentils,Pantry,Pantry,True,True,0.31732666600000003,0.0,0.9719674095038996,Pantry,
-Drex,store_section,canned chickpeas,Pantry,Pantry,True,True,0.466634083,0.0,0.996104678030544,Pantry,
-Drex,store_section,pasta,Pantry,Pantry,True,True,0.25609787500000003,0.0,0.9959094863744188,Pantry,
-Drex,store_section,olive oil,Pantry,Pantry,True,True,0.35259333400000004,0.0,0.9963676081008631,Pantry,
-Drex,store_section,garam masala,Pantry,Pantry,True,True,0.26700470900000006,0.0,0.9963353864179985,Pantry,
-Drex,store_section,soy sauce,Pantry,Pantry,True,True,0.33738887500000003,0.0,0.9962734911358654,Pantry,
-Drex,store_section,canned tomatoes,Pantry,Pantry,True,True,0.2836516250000001,0.0,0.9967249860402305,Pantry,
-Drex,store_section,flour,Pantry,Pantry,True,True,0.26851025000000006,0.0,0.9718174735836258,Pantry,
-Drex,store_section,sugar,Pantry,Pantry,True,True,0.2328184999999996,0.0,0.9856451620091027,Pantry,
-Drex,store_section,frozen peas,Frozen,Frozen,True,True,0.3447648750000001,0.0,0.980440080557237,Frozen,
-Drex,store_section,ice cream,Frozen,Frozen,True,True,0.3025242910000001,0.0,0.7488404376410055,Frozen,
-Drex,store_section,frozen spinach,Frozen,Frozen,True,True,0.3104410419999999,0.0,0.9763600301021745,Frozen,
-Drex,store_section,frozen berries,Frozen,Frozen,True,True,0.31945779200000013,0.0,0.9726089449155796,Frozen,
-Drex,store_section,bagels,Bakery,Bakery,True,True,0.27121408299999983,0.0,0.9974371605755471,Bakery,
-Drex,store_section,tortillas,Bakery,Bakery,True,True,0.6466648749999999,0.0,0.9621771681410333,Bakery,
-Drex,store_section,sourdough bread,Bakery,Bakery,True,True,0.7746849999999998,0.0,0.9936394374197237,Bakery,
-Drex,store_section,burger buns,Bakery,Bakery,True,True,0.3272881250000004,0.0,0.9959668015152494,Bakery,
-Drex,store_section,naan,Bakery,Bakery,True,True,0.277413916,0.0,0.9657888002096545,Bakery,
-Drex,vegetarian,Handvo,yes,yes,True,True,0.355729583,0.0,0.9954148327008576,yes,
-Drex,weekday_friendly,Handvo,no,no,True,True,0.29617125,0.0,0.981634282259856,no,
-Drex,vegetarian,Margherita Chicken Pasta,no,no,True,True,0.27009691599999996,0.0,0.9961705010713372,no,
-Drex,weekday_friendly,Margherita Chicken Pasta,no,no,True,True,0.30829229100000033,0.0,0.967420988027595,no,
-Drex,vegetarian,Mini Ghevar Bites,yes,yes,True,True,0.3693405000000003,0.0,0.9842800231967874,yes,
-Drex,weekday_friendly,Mini Ghevar Bites,no,no,True,True,0.4204923749999998,0.0,0.9839263833293612,no,
-Drex,vegetarian,Easy Milk Powder Rabri,yes,yes,True,True,0.2561542499999998,0.0,0.9921376682003359,yes,
-Drex,weekday_friendly,Easy Milk Powder Rabri,no,no,True,True,0.3822168750000001,0.0,0.9846260134992378,no,
-Drex,vegetarian,Tacos,yes,yes,True,True,0.29969112499999984,0.0,0.9965004332107754,yes,
-Drex,weekday_friendly,Tacos,yes,yes,True,True,0.4143015000000001,0.0,0.9908020400347626,yes,
-Drex,vegetarian,Stuffed Garlic Bread,yes,yes,True,True,0.47272079200000006,0.0,0.9942584519287939,yes,
-Drex,weekday_friendly,Stuffed Garlic Bread,yes,yes,True,True,0.2520935419999999,0.0,0.9799310357925192,yes,
-Drex,vegetarian,Herbed Stuffed Garlic Bread,yes,yes,True,True,0.35829429200000007,0.0,0.9882358303403148,yes,
-Drex,weekday_friendly,Herbed Stuffed Garlic Bread,yes,yes,True,True,0.299959458,0.0,0.9497332330693764,yes,
-Drex,vegetarian,Cheesy Wheat Garlic Bread,yes,yes,True,True,0.29329654100000013,0.0,0.9921376645043348,yes,
-Drex,weekday_friendly,Cheesy Wheat Garlic Bread,no,no,True,True,0.3073889999999997,0.0,0.962864086585282,no,
-Drex,vegetarian,Chicken Biryani,no,no,True,True,0.30818887500000036,0.0,0.9935757883323763,no,
-Drex,weekday_friendly,Chicken Biryani,no,no,True,True,0.29123845800000003,0.0,0.9917770171565248,no,
-Drex,vegetarian,Pancakes,yes,yes,True,True,0.3248364589999997,0.0,0.9941279485406673,yes,
-Drex,weekday_friendly,Pancakes,yes,yes,True,True,0.37612866600000006,0.0,0.9929720676161827,yes,
-Drex,vegetarian,Fresh Salad,yes,yes,True,True,0.32084837499999974,0.0,0.995902877133085,yes,
-Drex,weekday_friendly,Fresh Salad,yes,yes,True,True,0.32061516700000015,0.0,0.9882358248181168,yes,
-Drex,vegetarian,Vegetable Fried Rice,yes,yes,True,True,0.2764196669999994,0.0,0.9945108686767155,yes,
-Drex,weekday_friendly,Vegetable Fried Rice,yes,yes,True,True,0.5101450829999998,0.0,0.9812222653170036,yes,
-Drex,vegetarian,Spaghetti in Tomato Sauce,yes,yes,True,True,0.3312577910000005,0.0,0.9954148303832269,yes,
-Drex,weekday_friendly,Spaghetti in Tomato Sauce,yes,yes,True,True,0.37230074999999996,0.0,0.9726635543777495,yes,
-Drex,vegetarian,Chicken Noodles,no,no,True,True,0.3382564999999995,0.0,0.9839263888274785,no,
-Drex,weekday_friendly,Chicken Noodles,yes,yes,True,True,0.24590616600000015,0.0,0.9738403864550476,yes,
-Drex,vegetarian,Vegetable Soup,yes,yes,True,True,0.341555209,0.0,0.9871367795296173,yes,
-Drex,weekday_friendly,Vegetable Soup,yes,yes,True,True,0.3307705419999998,0.0,0.9846260208352735,yes,
-Drex,vegetarian,Chicken Curry,no,no,True,True,0.3136861670000002,0.0,0.9915905899577676,no,
-Drex,weekday_friendly,Chicken Curry,no,no,True,True,0.34030937499999947,0.0,0.9749678460897884,no,
-Drex,vegetarian,Chole,yes,yes,True,True,0.282885458,0.0,0.9884957655102324,yes,
-Drex,weekday_friendly,Chole,yes,yes,True,True,0.28017270900000035,0.0,0.955827534198761,yes,
-Drex,vegetarian,Aloo Paratha,yes,yes,True,True,0.4246862920000005,0.0,0.9946329098075063,yes,
-Drex,weekday_friendly,Aloo Paratha,no,no,True,True,0.3580864589999999,0.0,0.9738403864550476,no,
-Drex,vegetarian,Vegetable Pasta,yes,yes,True,True,0.2849651670000002,0.0,0.9962557802440991,yes,
-Drex,weekday_friendly,Vegetable Pasta,yes,yes,True,True,0.27339533299999985,0.0,0.9760479094672523,yes,
-Drex,vegetarian,Grilled Cheese Sandwich,yes,yes,True,True,0.449731667,0.0,0.9917770134618676,yes,
-Drex,weekday_friendly,Grilled Cheese Sandwich,yes,yes,True,True,0.28189254200000047,0.0,0.9884957599865816,yes,
-Drex,vegetarian,Masala Omelet,yes,yes,True,True,0.3209302919999999,0.0,0.9954148327008576,yes,
-Drex,weekday_friendly,Masala Omelet,yes,yes,True,True,0.29549270900000035,0.0,0.9879700861507071,yes,
-Drex,vegetarian,Vegetable Cutlets,yes,yes,True,True,0.39052708399999947,0.0,0.9770824672615676,yes,
-Drex,weekday_friendly,Vegetable Cutlets,no,no,True,True,0.31186345800000037,0.0,0.9688162749513074,no,
-Drex,vegetarian,Butter Chicken,no,no,True,True,0.32759812499999974,0.0,0.9970777120655112,no,
-Drex,weekday_friendly,Butter Chicken,yes,yes,True,True,0.35830345799999996,0.0,0.9790223076730952,yes,
-Drex,vegetarian,Dal Tadka,yes,yes,True,True,0.2847730000000004,0.0,0.9824319006069947,yes,
-Drex,weekday_friendly,Dal Tadka,no,no,True,True,0.3132220840000004,0.0,0.9628640700240156,no,
-Drex,vegetarian,Rajma Rice,yes,yes,True,True,0.4115302079999994,0.0,0.979481595516062,yes,
-Drex,weekday_friendly,Rajma Rice,no,no,True,True,0.3095967919999998,0.0,0.9714353464546469,no,
-Drex,vegetarian,Vegetable Pizza,yes,yes,True,True,0.3554065409999998,0.0,0.9884957655102324,yes,
-Drex,weekday_friendly,Vegetable Pizza,yes,yes,True,True,0.3099708329999995,0.0,0.9901629575696257,yes,
-Drex,vegetarian,Chicken Tacos,no,no,True,True,0.24009958300000012,0.0,0.9942584519287939,no,
-Drex,weekday_friendly,Chicken Tacos,yes,yes,True,True,0.24152141699999952,0.0,0.9908020437257876,yes,
-Drex,vegetarian,Vegetable Maggi,yes,yes,True,True,0.25383866700000013,0.0,0.9808011778921043,yes,
-Drex,weekday_friendly,Vegetable Maggi,yes,yes,True,True,0.33128729099999976,0.0,0.993994495135016,yes,
-Drex,vegetarian,Greek Yogurt Parfait,yes,yes,True,True,0.31059120799999995,0.0,0.9912050717191703,yes,
-Drex,weekday_friendly,Greek Yogurt Parfait,yes,yes,True,True,0.2878290409999993,0.0,0.9846260134992378,yes,
-Drex,vegetarian,Chocolate Mug Cake,yes,yes,True,True,0.24055616699999938,0.0,0.9882358192959189,yes,
-Drex,weekday_friendly,Chocolate Mug Cake,yes,yes,True,True,0.40055512499999946,0.0,0.9912050717191703,yes,
-Drex,vegetarian,Mango Smoothie,yes,yes,True,True,0.24128133399999996,0.0,0.9874206972806615,yes,
-Drex,weekday_friendly,Mango Smoothie,yes,yes,True,True,0.297744625,0.0,0.9868465442775826,yes,
-DeepInfra Qwen/Qwen3.8-27B,store_section,spinach,Produce,Produce,True,True,1.0056612500000002,8.76e-05,,"
+Drex,store_section,spinach,Produce,Produce,True,True,0.44862458299999997,0.0,0.969762696349267,Produce,
+Drex,store_section,tomatoes,Produce,Produce,True,True,0.361072458,0.0,0.9824286784108706,Produce,
+Drex,store_section,onion,Produce,Produce,True,True,0.400718292,0.0,0.9908615302916893,Produce,
+Drex,store_section,garlic,Produce,Produce,True,True,0.38604079199999997,0.0,0.9581298657467275,Produce,
+Drex,store_section,ginger,Produce,Produce,True,True,0.556402625,0.0,0.7852117730039175,Produce,
+Drex,store_section,cilantro,Produce,Produce,True,True,0.47919525,0.0,0.9880138955965952,Produce,
+Drex,store_section,lime,Produce,Produce,True,True,0.39775925000000006,0.0,0.9885520073828173,Produce,
+Drex,store_section,avocado,Produce,Produce,True,True,0.367968584,0.0,0.9928758488246897,Produce,
+Drex,store_section,bell pepper,Produce,Produce,True,True,0.490768666,0.0,0.9951484125135028,Produce,
+Drex,store_section,potatoes,Produce,Produce,True,True,0.299644208,0.0,0.9714610158092499,Produce,
+Drex,store_section,mango,Produce,Produce,True,True,0.46016329199999995,0.0,0.9975867868472671,Produce,
+Drex,store_section,mint,Produce,Produce,True,True,0.30403520799999995,0.0,0.7901013077788763,Produce,
+Drex,store_section,cheddar,Dairy,Dairy,True,True,0.27970787499999994,0.0,0.9951831522847396,Dairy,
+Drex,store_section,butter,Dairy,Dairy,True,True,0.34709858399999993,0.0,0.987270147608174,Dairy,
+Drex,store_section,greek yogurt,Dairy,Dairy,True,True,0.29153070800000014,0.0,0.9935290512916019,Dairy,
+Drex,store_section,paneer,Dairy,Dairy,True,True,0.28355795800000005,0.0,0.9885778217862197,Dairy,
+Drex,store_section,mozzarella,Dairy,Dairy,True,True,0.2818894169999999,0.0,0.9738106942735154,Dairy,
+Drex,store_section,milk,Dairy,Dairy,True,True,0.280948,0.0,0.9930832582706719,Dairy,
+Drex,store_section,eggs,Dairy,Dairy,True,True,0.2934205409999999,0.0,0.9860280227011863,Dairy,
+Drex,store_section,ghee,Dairy,Dairy,True,True,0.28236454200000005,0.0,0.983144031230805,Dairy,
+Drex,store_section,heavy cream,Dairy,Dairy,True,True,0.2964137499999999,0.0,0.993678347715677,Dairy,
+Drex,store_section,salmon,Meat & Fish,Meat & Fish,True,True,0.42442475,0.0,0.9802791081624178,Meat & Fish,
+Drex,store_section,chicken thighs,Meat & Fish,Meat & Fish,True,True,0.498072042,0.0,0.9914875121702805,Meat & Fish,
+Drex,store_section,ground beef,Meat & Fish,Meat & Fish,True,True,0.25384108400000005,0.0,0.9866485460249319,Meat & Fish,
+Drex,store_section,shrimp,Meat & Fish,Meat & Fish,True,True,0.3231618330000001,0.0,0.943555684730415,Meat & Fish,
+Drex,store_section,bacon,Meat & Fish,Meat & Fish,True,True,0.24316070900000009,0.0,0.9147632980057704,Meat & Fish,
+Drex,store_section,rice,Pantry,Pantry,True,True,0.32728049999999986,0.0,0.9974980814410962,Pantry,
+Drex,store_section,lentils,Pantry,Pantry,True,True,0.286639541,0.0,0.9719674095038996,Pantry,
+Drex,store_section,canned chickpeas,Pantry,Pantry,True,True,0.2570984580000002,0.0,0.996104678030544,Pantry,
+Drex,store_section,pasta,Pantry,Pantry,True,True,0.294772625,0.0,0.9959094863744188,Pantry,
+Drex,store_section,olive oil,Pantry,Pantry,True,True,0.3236438749999999,0.0,0.9963676081008631,Pantry,
+Drex,store_section,garam masala,Pantry,Pantry,True,True,0.25140666600000006,0.0,0.9963353864179985,Pantry,
+Drex,store_section,soy sauce,Pantry,Pantry,True,True,0.30185495799999984,0.0,0.9962734911358654,Pantry,
+Drex,store_section,canned tomatoes,Pantry,Pantry,True,True,0.3071084169999998,0.0,0.9967249860402305,Pantry,
+Drex,store_section,flour,Pantry,Pantry,True,True,0.30914850000000005,0.0,0.9718174735836258,Pantry,
+Drex,store_section,sugar,Pantry,Pantry,True,True,0.27085604100000005,0.0,0.9856451620091027,Pantry,
+Drex,store_section,frozen peas,Frozen,Frozen,True,True,0.2607040420000002,0.0,0.980440080557237,Frozen,
+Drex,store_section,ice cream,Frozen,Frozen,True,True,0.35782254199999963,0.0,0.7488404376410055,Frozen,
+Drex,store_section,frozen spinach,Frozen,Frozen,True,True,0.3202417500000001,0.0,0.9763600301021745,Frozen,
+Drex,store_section,frozen berries,Frozen,Frozen,True,True,0.2964037500000001,0.0,0.9726089449155796,Frozen,
+Drex,store_section,bagels,Bakery,Bakery,True,True,0.40358637500000016,0.0,0.9974371605755471,Bakery,
+Drex,store_section,tortillas,Bakery,Bakery,True,True,0.2674908330000001,0.0,0.9621771681410333,Bakery,
+Drex,store_section,sourdough bread,Bakery,Bakery,True,True,0.2725232919999998,0.0,0.9936394374197237,Bakery,
+Drex,store_section,burger buns,Bakery,Bakery,True,True,0.2639732910000001,0.0,0.9959668015152494,Bakery,
+Drex,store_section,naan,Bakery,Bakery,True,True,0.4084114579999998,0.0,0.9657888002096545,Bakery,
+Drex,vegetarian,Margherita Chicken Pasta,no,no,True,True,0.29771649999999994,0.0,0.9961705010713372,no,
+Drex,weekday_friendly,Margherita Chicken Pasta,no,no,True,True,0.27277670799999987,0.0,0.967420988027595,no,
+Drex,vegetarian,Mini Ghevar Bites,yes,yes,True,True,0.32326879099999983,0.0,0.9842800231967874,yes,
+Drex,weekday_friendly,Mini Ghevar Bites,no,no,True,True,0.28419933299999967,0.0,0.9839263833293612,no,
+Drex,vegetarian,Chicken Biryani,no,no,True,True,0.28098654199999995,0.0,0.9935757883323763,no,
+Drex,weekday_friendly,Chicken Biryani,no,no,True,True,0.35313079199999997,0.0,0.9917770171565248,no,
+Drex,vegetarian,Pancakes,yes,yes,True,True,0.37635212500000037,0.0,0.9941279485406673,yes,
+Drex,weekday_friendly,Pancakes,yes,yes,True,True,0.42640654200000006,0.0,0.9929720676161827,yes,
+Drex,vegetarian,Fresh Salad,yes,yes,True,True,0.2533865829999997,0.0,0.995902877133085,yes,
+Drex,weekday_friendly,Fresh Salad,yes,yes,True,True,0.2969538749999998,0.0,0.9882358248181168,yes,
+Drex,vegetarian,Vegetable Fried Rice,yes,yes,True,True,0.3841366670000004,0.0,0.9945108686767155,yes,
+Drex,weekday_friendly,Vegetable Fried Rice,yes,yes,True,True,0.28118358300000024,0.0,0.9812222653170036,yes,
+Drex,vegetarian,Spaghetti in Tomato Sauce,yes,yes,True,True,0.3905602499999996,0.0,0.9954148303832269,yes,
+Drex,weekday_friendly,Spaghetti in Tomato Sauce,yes,yes,True,True,0.28911579200000004,0.0,0.9726635543777495,yes,
+Drex,vegetarian,Chicken Noodles,no,no,True,True,0.30762124999999996,0.0,0.9839263888274785,no,
+Drex,weekday_friendly,Chicken Noodles,yes,yes,True,True,0.3659623339999998,0.0,0.9738403864550476,yes,
+Drex,vegetarian,Vegetable Soup,yes,yes,True,True,0.38750675,0.0,0.9871367795296173,yes,
+Drex,weekday_friendly,Vegetable Soup,yes,yes,True,True,0.3002322500000001,0.0,0.9846260208352735,yes,
+Drex,vegetarian,Chicken Curry,no,no,True,True,0.3108995830000003,0.0,0.9915905899577676,no,
+Drex,weekday_friendly,Chicken Curry,no,no,True,True,0.2815735830000001,0.0,0.9749678460897884,no,
+Drex,vegetarian,Chole,yes,yes,True,True,0.2556631659999997,0.0,0.9884957655102324,yes,
+Drex,weekday_friendly,Chole,yes,yes,True,True,0.3425589590000002,0.0,0.955827534198761,yes,
+Drex,vegetarian,Aloo Paratha,yes,yes,True,True,0.2964832500000001,0.0,0.9946329098075063,yes,
+Drex,weekday_friendly,Aloo Paratha,no,no,True,True,0.2650505000000001,0.0,0.9738403864550476,no,
+Drex,vegetarian,Vegetable Pasta,yes,yes,True,True,0.2985622920000002,0.0,0.9962557802440991,yes,
+Drex,weekday_friendly,Vegetable Pasta,yes,yes,True,True,0.31829820899999994,0.0,0.9760479094672523,yes,
+Drex,vegetarian,Grilled Cheese Sandwich,yes,yes,True,True,0.3019410410000001,0.0,0.9917770134618676,yes,
+Drex,weekday_friendly,Grilled Cheese Sandwich,yes,yes,True,True,0.3301726669999998,0.0,0.9884957599865816,yes,
+Drex,vegetarian,Masala Omelet,yes,yes,True,True,0.32154145800000045,0.0,0.9954148327008576,yes,
+Drex,weekday_friendly,Masala Omelet,yes,yes,True,True,0.28746920800000053,0.0,0.9879700861507071,yes,
+Drex,vegetarian,Vegetable Cutlets,yes,yes,True,True,0.38000774999999987,0.0,0.9770824672615676,yes,
+Drex,weekday_friendly,Vegetable Cutlets,no,no,True,True,0.2888477079999996,0.0,0.9688162749513074,no,
+Drex,vegetarian,Butter Chicken,no,no,True,True,0.32299679199999964,0.0,0.9970777120655112,no,
+Drex,weekday_friendly,Butter Chicken,yes,yes,True,True,0.3008644579999995,0.0,0.9790223076730952,yes,
+Drex,vegetarian,Dal Tadka,yes,yes,True,True,0.35590345800000023,0.0,0.9824319006069947,yes,
+Drex,weekday_friendly,Dal Tadka,no,no,True,True,0.3571924580000001,0.0,0.9628640700240156,no,
+Drex,vegetarian,Rajma Rice,yes,yes,True,True,0.4339966249999998,0.0,0.979481595516062,yes,
+Drex,weekday_friendly,Rajma Rice,no,no,True,True,0.4861009169999999,0.0,0.9714353464546469,no,
+Drex,vegetarian,Vegetable Pizza,yes,yes,True,True,0.5005889999999997,0.0,0.9884957655102324,yes,
+Drex,weekday_friendly,Vegetable Pizza,yes,yes,True,True,0.41833370899999966,0.0,0.9901629575696257,yes,
+Drex,vegetarian,Chicken Tacos,no,no,True,True,0.4446764999999999,0.0,0.9942584519287939,no,
+Drex,weekday_friendly,Chicken Tacos,yes,yes,True,True,0.45465175,0.0,0.9908020437257876,yes,
+Drex,vegetarian,Vegetable Maggi,yes,yes,True,True,0.3605359589999999,0.0,0.9808011778921043,yes,
+Drex,weekday_friendly,Vegetable Maggi,yes,yes,True,True,0.2884333750000003,0.0,0.993994495135016,yes,
+Drex,vegetarian,Greek Yogurt Parfait,yes,yes,True,True,0.2758049170000003,0.0,0.9912050717191703,yes,
+Drex,weekday_friendly,Greek Yogurt Parfait,yes,yes,True,True,0.4656316250000003,0.0,0.9846260134992378,yes,
+Drex,vegetarian,Chocolate Mug Cake,yes,yes,True,True,0.32368208399999965,0.0,0.9882358192959189,yes,
+Drex,weekday_friendly,Chocolate Mug Cake,yes,yes,True,True,0.2508426669999997,0.0,0.9912050717191703,yes,
+Drex,vegetarian,Mango Smoothie,yes,yes,True,True,0.2742549580000002,0.0,0.9874206972806615,yes,
+Drex,weekday_friendly,Mango Smoothie,yes,yes,True,True,0.2917312499999998,0.0,0.9868465442775826,yes,
+DeepInfra Qwen/Qwen3.8-27B,store_section,spinach,Produce,Produce,True,True,0.7962349159999995,7.822500000000002e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,tomatoes,Produce,Produce,True,True,0.9973849579999996,8.76e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,tomatoes,Produce,Produce,True,True,0.9757486250000005,7.447500000000001e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,onion,Produce,Produce,True,True,0.910879542,7.635000000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,onion,Produce,Produce,True,True,1.1227800840000004,8.9475e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,garlic,Produce,Produce,True,True,1.069951541,9.885000000000002e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,garlic,Produce,Produce,True,True,0.9520231670000001,9.885000000000002e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,ginger,Produce,Produce,True,True,1.617735917,0.000134475,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,ginger,Produce,Produce,True,True,2.0325820410000004,0.0002076,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,cilantro,Produce,Produce,True,True,0.9238741669999992,8.010000000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,cilantro,Produce,Produce,True,True,0.8512395420000001,8.9475e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,lime,Produce,Produce,True,True,0.988981707999999,9.12e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,lime,Produce,Produce,True,True,1.8565989170000003,9.12e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,avocado,Produce,Produce,True,True,1.2348751670000002,7.635000000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,avocado,Produce,Produce,True,True,1.7144307920000008,7.635000000000001e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,bell pepper,Produce,Produce,True,True,0.8770563329999996,7.822500000000002e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,bell pepper,Produce,Produce,True,True,0.6403749579999998,7.822500000000002e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,potatoes,Produce,Produce,True,True,0.949018208,8.76e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,potatoes,Produce,Produce,True,True,0.9571352080000004,8.76e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,mango,Produce,Produce,True,True,0.7027235409999992,9.135000000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,mango,Produce,Produce,True,True,0.9795847499999999,7.822500000000002e-05,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,mint,Produce,Produce,True,True,5.504410084,0.00016994999999999998,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,mint,Produce,Produce,True,True,1.200845333000001,0.000138075,,"
 
 Produce",
-DeepInfra Qwen/Qwen3.8-27B,store_section,cheddar,Dairy,Dairy,True,True,1.0744764579999995,9.135000000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,cheddar,Dairy,Dairy,True,True,0.6528120409999998,7.822500000000002e-05,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,butter,Dairy,Dairy,True,True,1.0568644589999998,0.00010822500000000003,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,butter,Dairy,Dairy,True,True,1.2516539169999996,0.00010822500000000003,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,greek yogurt,Dairy,Dairy,True,True,0.9566352089999999,8.774999999999999e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,greek yogurt,Dairy,Dairy,True,True,0.8551339169999999,7.4625e-05,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,paneer,Dairy,Dairy,True,True,1.1355133330000005,0.000126975,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,paneer,Dairy,Dairy,True,True,0.957078375,9.697500000000001e-05,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,mozzarella,Dairy,Dairy,True,True,1.1736108329999997,9.3225e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,mozzarella,Dairy,Dairy,True,True,0.9443870420000007,9.3225e-05,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,milk,Dairy,Dairy,True,True,0.8961205420000002,8.5725e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,milk,Dairy,Dairy,True,True,0.9201054590000002,8.5725e-05,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,eggs,Dairy,Dairy,True,True,1.0316555409999992,0.00010072500000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,eggs,Dairy,Dairy,True,True,1.2430413330000007,0.00010072500000000002,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,ghee,Dairy,Dairy,True,True,1.0667592910000003,0.00011384999999999999,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,ghee,Dairy,Dairy,True,True,1.0521656249999989,0.00011197500000000002,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,heavy cream,Dairy,Dairy,True,True,0.821366416,8.5725e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,heavy cream,Dairy,Dairy,True,True,0.9395268750000003,8.76e-05,,"
 
 Dairy",
-DeepInfra Qwen/Qwen3.8-27B,store_section,salmon,Meat & Fish,Meat & Fish,True,True,1.2657157909999999,0.00015135,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,salmon,Meat & Fish,Meat & Fish,True,True,2.2286329590000005,0.00014572499999999998,,"
 
 Meat & Fish",
-DeepInfra Qwen/Qwen3.8-27B,store_section,chicken thighs,Meat & Fish,Meat & Fish,True,True,0.8258251659999996,8.774999999999999e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,chicken thighs,Meat & Fish,Meat & Fish,True,True,1.194254291,9.900000000000001e-05,,"
 
 Meat & Fish",
-DeepInfra Qwen/Qwen3.8-27B,store_section,ground beef,Meat & Fish,Meat & Fish,True,True,0.7354434160000007,8.1975e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,ground beef,Meat & Fish,Meat & Fish,True,True,1.2050583750000001,0.00010260000000000001,,"
 
 Meat & Fish",
-DeepInfra Qwen/Qwen3.8-27B,store_section,shrimp,Meat & Fish,Meat & Fish,True,True,1.166215124999999,0.00014572499999999998,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,shrimp,Meat & Fish,Meat & Fish,True,True,2.334968208000001,0.00014572499999999998,,"
 
 Meat & Fish",
-DeepInfra Qwen/Qwen3.8-27B,store_section,bacon,Meat & Fish,Meat & Fish,True,True,1.212008749999999,0.000153225,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,bacon,Meat & Fish,Meat & Fish,True,True,2.0334225420000003,0.00015135,,"
 
 Meat & Fish",
-DeepInfra Qwen/Qwen3.8-27B,store_section,rice,Pantry,Pantry,True,True,0.7968041249999995,9.3075e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,rice,Pantry,Pantry,True,True,1.1126317500000003,0.000104325,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,lentils,Pantry,Pantry,True,True,0.782982166,9.510000000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,lentils,Pantry,Pantry,True,True,1.3798361670000006,0.00010260000000000001,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,canned chickpeas,Pantry,Pantry,True,True,0.7799134999999993,9.742500000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,canned chickpeas,Pantry,Pantry,True,True,1.308458332999999,9.742500000000001e-05,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,pasta,Pantry,Pantry,True,True,0.906394624999999,9.3225e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,pasta,Pantry,Pantry,True,True,0.940547166,8.9475e-05,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,olive oil,Pantry,Pantry,True,True,1.2614197919999999,8.5725e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,olive oil,Pantry,Pantry,True,True,0.8816997499999992,8.5725e-05,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,garam masala,Pantry,Pantry,True,True,0.9623372499999991,0.00011227500000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,garam masala,Pantry,Pantry,True,True,1.3172895000000011,0.00011227500000000002,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,soy sauce,Pantry,Pantry,True,True,0.7598867079999998,8.587500000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,soy sauce,Pantry,Pantry,True,True,1.171985084000001,9.900000000000001e-05,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,canned tomatoes,Pantry,Pantry,True,True,0.8408935829999997,0.0001065,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,canned tomatoes,Pantry,Pantry,True,True,0.9967287909999989,0.0001065,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,flour,Pantry,Pantry,True,True,0.8806872909999992,9.3225e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,flour,Pantry,Pantry,True,True,1.0095005410000013,9.3225e-05,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,sugar,Pantry,Pantry,True,True,0.7094553330000011,8.1975e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,sugar,Pantry,Pantry,True,True,0.8302814170000001,0.00010072500000000002,,"
 
 Pantry",
-DeepInfra Qwen/Qwen3.8-27B,store_section,frozen peas,Frozen,Frozen,True,True,0.7509740419999993,8.9625e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,frozen peas,Frozen,Frozen,True,True,0.8805447500000003,8.9625e-05,,"
 
 Frozen",
-DeepInfra Qwen/Qwen3.8-27B,store_section,ice cream,Frozen,Frozen,True,True,1.2710331660000005,8.9475e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,ice cream,Frozen,Frozen,True,True,0.9779032080000007,8.9475e-05,,"
 
 Frozen",
-DeepInfra Qwen/Qwen3.8-27B,store_section,frozen spinach,Frozen,Frozen,True,True,0.703630167,7.4625e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,frozen spinach,Frozen,Frozen,True,True,0.9269882080000009,7.4625e-05,,"
 
 Frozen",
-DeepInfra Qwen/Qwen3.8-27B,store_section,frozen berries,Frozen,Frozen,True,True,1.0263599160000005,0.00010274999999999999,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,frozen berries,Frozen,Frozen,True,True,1.3677372079999994,0.00010274999999999999,,"
 
 Frozen",
-DeepInfra Qwen/Qwen3.8-27B,store_section,bagels,Bakery,Bakery,True,True,1.1803882079999983,0.00012885000000000001,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,bagels,Bakery,Bakery,True,True,0.8522051249999993,7.635000000000001e-05,,"
 
 Bakery",
-DeepInfra Qwen/Qwen3.8-27B,store_section,tortillas,Bakery,Bakery,True,True,1.167260958,0.0001365,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,tortillas,Bakery,Bakery,True,True,1.4047254160000016,0.0001365,,"
 
 Bakery",
-DeepInfra Qwen/Qwen3.8-27B,store_section,sourdough bread,Bakery,Bakery,True,True,0.9715187079999996,0.00010290000000000001,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,sourdough bread,Bakery,Bakery,True,True,2.2312160410000015,9.915000000000002e-05,,"
 
 Bakery",
-DeepInfra Qwen/Qwen3.8-27B,store_section,burger buns,Bakery,Bakery,True,True,1.2546198750000013,9.900000000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,burger buns,Bakery,Bakery,True,True,2.7879922080000004,0.00013837500000000002,,"
 
 Bakery",
-DeepInfra Qwen/Qwen3.8-27B,store_section,naan,Bakery,Bakery,True,True,2.7027815409999985,0.00026744999999999997,,"
+DeepInfra Qwen/Qwen3.8-27B,store_section,naan,Bakery,Bakery,True,True,4.175187209000001,0.00022432500000000002,,"
 
 Bakery",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Handvo,yes,yes,True,True,1.9344414169999986,0.00013777500000000003,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Handvo,no,no,True,True,1.8574907080000003,0.00011392500000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Margherita Chicken Pasta,no,no,True,True,0.9031559169999994,9.180000000000001e-05,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Margherita Chicken Pasta,no,no,True,True,0.8560120829999995,9.180000000000001e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Margherita Chicken Pasta,no,no,True,True,4.617538791000001,0.0001167,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Margherita Chicken Pasta,no,no,True,True,1.6558167919999995,0.00011295,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Mini Ghevar Bites,yes,yes,True,True,2.979722916,0.0001917,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Mini Ghevar Bites,no,no,True,True,1.1253501670000006,0.000117,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Mini Ghevar Bites,yes,yes,True,True,2.4742862919999986,0.000193575,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Mini Ghevar Bites,no,no,True,True,1.3803685829999992,0.00011325,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chicken Biryani,no,no,True,True,1.1609473340000012,0.000113475,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Easy Milk Powder Rabri,yes,yes,True,True,1.1931519170000016,0.00013065,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Easy Milk Powder Rabri,no,no,True,True,1.0983418749999991,0.000114825,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chicken Biryani,no,no,True,True,1.1019388330000002,0.00011640000000000001,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Tacos,yes,yes,True,True,2.089553332999998,0.0001134,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Pancakes,yes,yes,True,True,1.4027460000000005,0.000150225,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Tacos,yes,yes,True,True,1.009287957999998,0.00010080000000000001,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Pancakes,yes,yes,True,True,1.6503215000000004,0.0001047,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Stuffed Garlic Bread,yes,yes,True,True,1.3060257499999999,0.00014010000000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Fresh Salad,yes,yes,True,True,1.1510540829999982,0.00012570000000000002,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Stuffed Garlic Bread,yes,yes,True,True,1.8890648340000027,0.00011077500000000001,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Fresh Salad,yes,yes,True,True,0.921935916999999,9.5175e-05,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Herbed Stuffed Garlic Bread,yes,yes,True,True,1.8720474999999972,0.00012209999999999999,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Fried Rice,yes,yes,True,True,3.8941642079999994,0.000259875,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Herbed Stuffed Garlic Bread,yes,yes,True,True,1.790342791999997,0.000111375,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Fried Rice,yes,yes,True,True,1.082634584000001,0.000103275,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Cheesy Wheat Garlic Bread,yes,yes,True,True,1.8876525830000013,0.000149925,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Spaghetti in Tomato Sauce,yes,yes,True,True,1.8230294580000006,0.0001347,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Cheesy Wheat Garlic Bread,no,no,True,True,1.5945498749999985,0.000114825,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Spaghetti in Tomato Sauce,yes,yes,True,True,1.0767258329999976,0.0001092,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chicken Noodles,no,no,True,True,1.055621207999998,0.00010755000000000001,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chicken Biryani,no,no,True,True,1.501228042000001,9.847499999999998e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chicken Noodles,yes,yes,True,True,1.9356677500000004,0.000110475,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Soup,yes,yes,True,True,2.391246125000002,0.00015255000000000002,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Soup,yes,yes,True,True,1.3932642499999979,0.000102975,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chicken Curry,no,no,True,True,1.2315853340000018,9.9525e-05,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chicken Biryani,no,no,True,True,2.5194030829999967,0.00011265,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chicken Curry,no,no,True,True,1.2726676250000004,0.00011205000000000001,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Pancakes,yes,yes,True,True,1.3947457079999985,0.00015585000000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chole,yes,yes,True,True,1.3799557500000006,0.00015360000000000002,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Pancakes,yes,yes,True,True,0.9478961249999998,0.000102825,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chole,yes,yes,True,True,1.0472298339999995,0.00011017500000000001,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Fresh Salad,yes,yes,True,True,1.3635120829999998,0.00012570000000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Aloo Paratha,yes,yes,True,True,1.8435471670000005,0.000140325,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Fresh Salad,yes,yes,True,True,1.0560413749999995,9.705e-05,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Fried Rice,yes,yes,True,True,1.8998974580000016,0.00020549999999999998,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Fried Rice,yes,yes,True,True,1.6245370829999999,0.00010515,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Spaghetti in Tomato Sauce,yes,yes,True,True,1.3337168330000004,0.0001347,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Spaghetti in Tomato Sauce,yes,yes,True,True,1.4031831250000018,0.00015795,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chicken Noodles,no,no,True,True,0.9812969580000015,0.00010755000000000001,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Aloo Paratha,no,no,True,True,1.4995744170000016,0.00011265,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chicken Noodles,yes,yes,True,True,1.1780722079999997,0.0001161,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Pasta,yes,yes,True,True,1.8084829580000026,0.00013815,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Soup,yes,yes,True,True,1.4731416659999965,0.00015255000000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Pasta,yes,yes,True,True,1.3623842090000018,0.0001086,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Soup,yes,yes,True,True,1.0029692499999996,0.00010109999999999999,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Grilled Cheese Sandwich,yes,yes,True,True,1.4248773750000012,0.00011227500000000002,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chicken Curry,no,no,True,True,1.592638291,0.00010515,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Grilled Cheese Sandwich,yes,yes,True,True,1.0793942090000002,9.764999999999999e-05,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Masala Omelet,yes,yes,True,True,2.622007042,0.00015517500000000004,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Masala Omelet,yes,yes,True,True,1.312648124999999,0.00010357499999999998,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Cutlets,yes,yes,True,True,2.356386292,0.00013424999999999998,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Cutlets,no,no,True,True,1.2091766250000013,0.00011265,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chicken Curry,no,no,True,True,4.299306542,0.00020767500000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Butter Chicken,no,no,True,True,1.1197581250000006,0.00010125000000000002,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chole,yes,yes,True,True,3.2178942500000005,0.00015360000000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Butter Chicken,yes,yes,True,True,1.6769627499999977,0.0001497,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chole,yes,yes,True,True,2.6055940829999997,0.00011017500000000001,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Dal Tadka,yes,yes,True,True,1.8994015000000033,0.00015720000000000003,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Aloo Paratha,yes,yes,True,True,3.6403409579999995,0.000140325,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Aloo Paratha,no,no,True,True,2.2315046669999994,0.000114525,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Dal Tadka,no,no,True,True,1.2020533329999985,0.000114225,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Pasta,yes,yes,True,True,3.1865474579999997,0.00013815,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Rajma Rice,yes,yes,True,True,1.591137125000003,0.000148275,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Pasta,yes,yes,True,True,1.8584217500000015,0.0001086,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Grilled Cheese Sandwich,yes,yes,True,True,1.8254760419999982,0.00011227500000000002,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Grilled Cheese Sandwich,yes,yes,True,True,1.7016585000000006,0.00010515,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Masala Omelet,yes,yes,True,True,2.458268708000002,0.00015517500000000004,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Masala Omelet,yes,yes,True,True,0.9720505830000015,9.607499999999999e-05,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Cutlets,yes,yes,True,True,1.5979821669999978,0.00013424999999999998,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Cutlets,no,no,True,True,1.8275785420000012,0.00011265,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Rajma Rice,no,no,True,True,1.1631987499999994,0.00011625000000000002,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Butter Chicken,no,no,True,True,1.1363710420000004,0.00010125000000000002,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Pizza,yes,yes,True,True,2.1562455000000007,0.0001497,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Pizza,yes,yes,True,True,1.327359083000001,0.00010109999999999999,,"
+
+yes",
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chicken Tacos,no,no,True,True,2.1182743749999986,9.99e-05,,"
 
 no",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Butter Chicken,yes,yes,True,True,1.8723454589999982,0.00010845000000000001,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chicken Tacos,yes,yes,True,True,1.3959954169999982,0.00010109999999999999,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Dal Tadka,yes,yes,True,True,1.1271232080000004,0.00011970000000000001,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Maggi,yes,yes,True,True,2.698325666999999,0.00024195,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Dal Tadka,no,no,True,True,1.205810834000001,0.00011235000000000001,,"
-
-no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Rajma Rice,yes,yes,True,True,2.305146917000002,0.0001464,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Maggi,yes,yes,True,True,1.5860214579999976,0.0001086,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Rajma Rice,no,no,True,True,1.1810582079999996,0.00011250000000000001,,"
-
-no",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Pizza,yes,yes,True,True,1.3662147910000009,0.0001422,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Greek Yogurt Parfait,yes,yes,True,True,3.0200038750000004,0.000236775,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Pizza,yes,yes,True,True,1.8621135839999994,0.00010109999999999999,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Greek Yogurt Parfait,yes,yes,True,True,2.3180796249999993,9.795e-05,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chicken Tacos,no,no,True,True,1.527905833000002,9.99e-05,,"
-
-no",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chicken Tacos,yes,yes,True,True,1.3048054170000007,0.0001311,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chocolate Mug Cake,yes,yes,True,True,3.2098812909999985,0.00022177499999999998,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Vegetable Maggi,yes,yes,True,True,2.504251084,0.0002682,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chocolate Mug Cake,yes,yes,True,True,1.5146986659999975,9.532500000000001e-05,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Vegetable Maggi,yes,yes,True,True,1.059824250000002,0.000102975,,"
+DeepInfra Qwen/Qwen3.8-27B,vegetarian,Mango Smoothie,yes,yes,True,True,2.983176167,0.00020647500000000002,,"
 
 yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Greek Yogurt Parfait,yes,yes,True,True,5.110000708000001,0.000240525,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Greek Yogurt Parfait,yes,yes,True,True,1.0341972499999983,9.607499999999999e-05,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Chocolate Mug Cake,yes,yes,True,True,3.6361647910000023,0.000176775,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Chocolate Mug Cake,yes,yes,True,True,1.0188595830000011,9.907500000000001e-05,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,vegetarian,Mango Smoothie,yes,yes,True,True,1.4537839580000025,0.00014835,,"
-
-yes",
-DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Mango Smoothie,yes,yes,True,True,0.9407235420000006,9.36e-05,,"
+DeepInfra Qwen/Qwen3.8-27B,weekday_friendly,Mango Smoothie,yes,yes,True,True,1.2678927920000014,9.36e-05,,"
 
 yes",

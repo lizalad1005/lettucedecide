@@ -35,21 +35,21 @@ Keys stay on the local Python server and are never sent to the browser. If a key
 python3 benchmark.py
 ```
 
-The benchmark makes 107 decisions per model, one decision per call for both models: 45 store-section labels (hand-written answer key in `benchmark.py`), plus 31 "vegetarian?" and 31 "weekday-friendly?" (30 minutes or less) answers taken from the recipe data. Both models get the same instructions and options. For the LLM, any `<think>` block is removed, and a reply that isn't exactly one allowed option counts as **invalid**.
+The benchmark makes 95 decisions per model, one decision per call for both models: 45 store-section labels (hand-written answer key in `benchmark.py`), plus 25 "vegetarian?" and 25 "weekday-friendly?" (30 minutes or less) answers taken from the recipe data. Both models get the same instructions and options. For the LLM, any `<think>` block is removed, and a reply that isn't exactly one allowed option counts as **invalid**.
 
 Results are saved in [`results/`](results/): `summary.md` (table), `summary.json`, `benchmark_rows.csv` (every decision), and `chart.svg`.
 
-**Result (measured Nov 14, 2026):** Drex matched the LLM's accuracy and answered about 4.5× faster per decision.
+**Result (measured Nov 14, 2026):** Drex matched the LLM's accuracy and answered about 4.6× faster per decision.
 
 | Metric | Drex | DeepInfra Qwen/Qwen3.8-27B |
 |---|---|---|
 | Accuracy | 100.0% | 100.0% |
-| Avg latency | 338 ms | 1506 ms |
+| Avg latency | 335 ms | 1535 ms |
 | Cost / 1k decisions | not reported | $0.1182 |
 | Invalid answers | 0 | 0 |
 | Request errors | 0 | 0 |
 
-107 decisions per model: 45 store sections, 31 vegetarian, 31 weekday-friendly.
+95 decisions per model: 45 store sections, 25 vegetarian, 25 weekday-friendly.
 Cost is what each API reported per call (Drex `usage.cost`, DeepInfra `estimated_cost`); "not reported" means the API returned no cost. Latency is wall-clock per call, 6 calls in parallel.
 
 ![Drex vs LLM benchmark chart](results/chart.svg)
