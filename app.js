@@ -285,6 +285,7 @@ mealPlan.addEventListener("click", (event) => {
 closeRecipeDetail.addEventListener("click", () => { recipeDetail.hidden = true; });
 
 planButton.addEventListener("click", () => {
+  if (fridgeInput.value.trim()) renderFridgeChecklist();
   if (ingredientFiles.length && !ingredientsAnalyzed) {
     aiStatus.textContent = "Analyze your ingredient photos with Drex first, then plan your week.";
     aiStatus.scrollIntoView({ behavior: "smooth", block: "center" });
