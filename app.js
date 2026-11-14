@@ -41,6 +41,7 @@ let fridgeInventory = [];
 let planningRound = 0;
 let ingredientFiles = [];
 let recipeCardFile = null;
+let ingredientsAnalyzed = false;
 
 const demoDetectedItems = ["milk", "garlic", "rice", "butter", "tomatoes"];
 
@@ -62,6 +63,7 @@ fridgePhoto.addEventListener("change", () => {
   ingredientImages.innerHTML = ingredientFiles.map((file) => `<img src="${URL.createObjectURL(file)}" alt="Ingredient photo: ${file.name}" />`).join("");
   uploadLabel.textContent = `${ingredientFiles.length} ingredient photo${ingredientFiles.length === 1 ? "" : "s"} selected`;
   fridgePreview.hidden = false;
+  ingredientsAnalyzed = false;
   analyzeIngredientsButton.disabled = false;
 });
 
@@ -95,8 +97,10 @@ analyzeIngredientsButton.addEventListener("click", async () => {
   try {
     const result = await callVision("/api/analyze-ingredients", ingredientFiles);
     renderDetectedItems(result.ingredients || []);
+    ingredientsAnalyzed = true;
     aiStatus.textContent = `Drex identified ${result.ingredients?.length || 0} ingredients. Confirm or uncheck them below.`;
   } catch (error) {
+    ingredientsAnalyzed = false;
     aiStatus.textContent = `Could not analyze the photos: ${error.message}. Set DEEPINFRA_API_KEY and run server.py.`;
   } finally {
     analyzeIngredientsButton.disabled = false;
@@ -197,7 +201,7 @@ function chooseWeeklyRecipes(recipes) {
   const ranked = recipes.map((recipe, index) => {
     const matches = recipe.ingredients.filter((ingredient) => available.some((item) => ingredient.toLowerCase().includes(item) || item.includes(ingredient.toLowerCase()))).length;
     const rotatedIndex = (index - rotation + recipes.length) % recipes.length;
-    return { recipe, score: matches * 100 - (recipe.prepMinutes || 30), rotatedIndex, matches };
+    return { recipe, score: available.length ? matches * 100 - (recipe.prepMinutes || 30) : 0, rotatedIndex, matches };
   }).sort((a, b) => b.score - a.score || a.rotatedIndex - b.rotatedIndex);
   planningRound += 1;
   return ranked.slice(0, Math.min(7, ranked.length)).map((item) => item.recipe);
@@ -244,7 +248,14 @@ mealPlan.addEventListener("click", (event) => {
 });
 closeRecipeDetail.addEventListener("click", () => { recipeDetail.hidden = true; });
 
-planButton.addEventListener("click", () => renderPlan(chooseWeeklyRecipes(parseRecipes())));
+planButton.addEventListener("click", () => {
+  if (ingredientFiles.length && !ingredientsAnalyzed) {
+    aiStatus.textContent = "Analyze your ingredient photos with Drex first, then plan your week.";
+    aiStatus.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+  renderPlan(chooseWeeklyRecipes(parseRecipes()));
+});
 resetButton.addEventListener("click", () => { results.hidden = true; recipeInput.focus(); });
 
 function addMessage(type, message) {
