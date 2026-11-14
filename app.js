@@ -63,7 +63,7 @@ function renderDetectedItems(items = demoDetectedItems) {
 }
 
 function renderFridgeChecklist() {
-  const items = fridgeInput.value.split("\n").map((item) => item.trim().toLowerCase()).filter(Boolean);
+  const items = fridgeInput.value.split(/[\n,;]+/).map(ingredientName).filter(Boolean);
   fridgeInventory = [...new Set(items)];
   fridgeChecklist.innerHTML = fridgeInventory.map((item) => `<label class="detected-item"><input type="checkbox" value="${item}" checked /> ${item}</label>`).join("");
   fridgeChecklist.querySelectorAll("input").forEach((input) => input.addEventListener("change", () => {
@@ -225,10 +225,13 @@ function parseRecipes() {
 
 function chooseWeeklyRecipes(recipes) {
   if (!recipes.length) return fallbackRecipes;
-  const available = fridgeInventory.map((item) => item.toLowerCase());
+  const available = fridgeInventory.map(ingredientName);
   const rotation = planningRound % recipes.length;
   const ranked = recipes.map((recipe, index) => {
-    const matches = recipe.ingredients.filter((ingredient) => available.some((item) => ingredient.toLowerCase().includes(item) || item.includes(ingredient.toLowerCase()))).length;
+    const matches = recipe.ingredients.filter((ingredient) => {
+      const name = ingredientName(ingredient);
+      return available.some((item) => name === item || name.includes(item) || item.includes(name));
+    }).length;
     const rotatedIndex = (index - rotation + recipes.length) % recipes.length;
     return { recipe, score: available.length ? matches * 100 - (recipe.prepMinutes || 30) : 0, rotatedIndex, matches };
   }).sort((a, b) => b.score - a.score || a.rotatedIndex - b.rotatedIndex);
