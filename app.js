@@ -14,6 +14,9 @@ const ingredientImages = document.querySelector("#ingredient-images");
 const uploadLabel = document.querySelector("#upload-label");
 const detectedItems = document.querySelector("#detected-items");
 const recipeGallery = document.querySelector("#recipe-gallery");
+const recipeDetail = document.querySelector("#recipe-detail");
+const recipeDetailContent = document.querySelector("#recipe-detail-content");
+const closeRecipeDetail = document.querySelector("#close-recipe-detail");
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const fallbackRecipes = [
@@ -56,12 +59,32 @@ fridgePhoto.addEventListener("change", () => {
 
 recipeInput.value = fallbackRecipes.map((recipe) => `${recipe.name} — ${recipe.ingredients.join(", ")}`).join("\n");
 function renderRecipeGallery(recipes) {
-  recipeGallery.innerHTML = recipes.map((recipe) => `
-    <article class="recipe-photo-card">
+  recipeGallery.innerHTML = recipes.map((recipe, index) => `
+    <article class="recipe-photo-card" data-recipe-index="${index}" role="button" tabindex="0" aria-label="View ${recipe.name} recipe">
       ${recipe.image ? `<img src="${recipe.image}" alt="${recipe.name}" />` : `<div class="recipe-photo-placeholder">Photo<br />coming soon</div>`}
       <span>${recipe.name}</span>
     </article>
   `).join("");
+}
+
+function showRecipeDetails(recipe) {
+  const ingredients = recipe.ingredients || [];
+  const steps = recipe.steps || ["Recipe steps will be added soon. You can still use the ingredients to plan your shopping list."];
+  recipeDetailContent.innerHTML = `
+    <p class="eyebrow">Recipe card</p>
+    <h2>${recipe.name}</h2>
+    <div class="recipe-detail-grid">
+      <div><h3>Ingredients</h3><ul>${ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}</ul></div>
+      <div><h3>How to make it</h3><ol>${steps.map((step) => `<li>${step}</li>`).join("")}</ol></div>
+    </div>
+  `;
+  recipeDetail.hidden = false;
+  recipeDetail.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function openRecipeByIndex(index) {
+  const recipe = recipeCatalog[index];
+  if (recipe) showRecipeDetails(recipe);
 }
 
 renderRecipeGallery(recipeCatalog);
@@ -97,7 +120,8 @@ function renderPlan(recipes) {
     const image = recipe.image
       ? `<img src="${recipe.image}" alt="${recipe.name}" />`
       : `<div class="meal-photo-placeholder">Food photo<br />coming soon</div>`;
-    return `<article class="meal-card">${image}<div class="meal-card-content"><small>${day}</small><h3>${recipe.name}</h3></div></article>`;
+    const recipeIndex = recipeCatalog.findIndex((item) => item.id === recipe.id);
+    return `<article class="meal-card" data-recipe-index="${recipeIndex >= 0 ? recipeIndex : index}" role="button" tabindex="0" aria-label="View ${recipe.name} recipe">${image}<div class="meal-card-content"><small>${day}</small><h3>${recipe.name}</h3></div></article>`;
   }).join("");
 
   const ingredients = [...new Set(recipes.flatMap((recipe) => recipe.ingredients.map((item) => item.toLowerCase())))];
@@ -110,6 +134,21 @@ function renderPlan(recipes) {
   results.hidden = false;
   results.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
+recipeGallery.addEventListener("click", (event) => {
+  const card = event.target.closest("[data-recipe-index]");
+  if (card) openRecipeByIndex(Number(card.dataset.recipeIndex));
+});
+recipeGallery.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  openRecipeByIndex(Number(event.target.dataset.recipeIndex));
+});
+mealPlan.addEventListener("click", (event) => {
+  const card = event.target.closest("[data-recipe-index]");
+  if (card) openRecipeByIndex(Number(card.dataset.recipeIndex));
+});
+closeRecipeDetail.addEventListener("click", () => { recipeDetail.hidden = true; });
 
 planButton.addEventListener("click", () => renderPlan(parseRecipes()));
 resetButton.addEventListener("click", () => { results.hidden = true; recipeInput.focus(); });
