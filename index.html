@@ -14,6 +14,21 @@
         <p class="subtitle">Turn recipe cards into a calmer week of cooking.</p>
       </header>
 
+      <section class="setup-card recipe-card-first">
+        <div>
+          <p class="eyebrow">Add to your collection</p>
+          <h2>Scan a recipe card</h2>
+          <p class="muted">Upload a handwritten or printed recipe. Drex will read the ingredients and steps.</p>
+        </div>
+        <label class="upload-dropzone" for="recipe-card-photo">
+          <span class="upload-icon">＋</span>
+          <span id="recipe-card-label">Choose a recipe card photo</span>
+          <input id="recipe-card-photo" type="file" accept="image/*" />
+        </label>
+        <button id="extract-recipe" class="secondary-button" type="button" disabled>Extract recipe with Drex</button>
+        <p id="ai-status" class="ai-status" aria-live="polite"></p>
+      </section>
+
       <section class="setup-card" aria-labelledby="setup-title">
         <div>
           <p class="eyebrow">Step 1</p>
@@ -49,20 +64,6 @@
               <div id="detected-items" class="detected-items"></div>
             </div>
           </div>
-        </div>
-        <div class="fridge-upload recipe-card-upload">
-          <div>
-            <p class="eyebrow">Add to your collection</p>
-            <h2>Scan a recipe card</h2>
-            <p class="muted">Upload a handwritten or printed recipe. Drex will read the ingredients and steps.</p>
-          </div>
-          <label class="upload-dropzone" for="recipe-card-photo">
-            <span class="upload-icon">＋</span>
-            <span id="recipe-card-label">Choose a recipe card photo</span>
-            <input id="recipe-card-photo" type="file" accept="image/*" />
-          </label>
-          <button id="extract-recipe" class="secondary-button" type="button" disabled>Extract recipe with Drex</button>
-          <p id="ai-status" class="ai-status" aria-live="polite"></p>
         </div>
         <button id="plan-button" type="button">Plan my week</button>
       </section>
