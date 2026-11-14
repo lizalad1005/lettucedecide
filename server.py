@@ -56,7 +56,7 @@ class Handler(SimpleHTTPRequestHandler):
             if self.path.endswith("analyze-ingredients"):
                 result = deepinfra_request(
                     images,
-                    "Identify the visible food ingredients in these photos. Return JSON exactly as {\"ingredients\":[\"ingredient 1\",\"ingredient 2\"]}. Use simple grocery names and do not include prepared dishes, packaging, or guesses with low confidence.",
+                    "Identify every visible food ingredient in these photos. Be exhaustive across all images and include clearly visible items even when they appear in a collage or recipe-card photo. Return JSON exactly as {\"ingredients\":[\"ingredient 1\",\"ingredient 2\"]}. Use simple grocery names, remove duplicates, and do not include prepared dishes or packaging.",
                 )
             else:
                 result = deepinfra_request(

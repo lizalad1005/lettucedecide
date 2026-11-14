@@ -45,11 +45,12 @@ let ingredientsAnalyzed = false;
 
 const demoDetectedItems = ["milk", "garlic", "rice", "butter", "tomatoes"];
 
-function renderDetectedItems() {
-  detectedItems.innerHTML = demoDetectedItems.map((item) => `
+function renderDetectedItems(items = demoDetectedItems) {
+  const cleanedItems = [...new Set(items.map((item) => item.trim().toLowerCase()).filter(Boolean))];
+  detectedItems.innerHTML = cleanedItems.map((item) => `
     <label class="detected-item"><input type="checkbox" value="${item}" checked /> ${item}</label>
   `).join("");
-  fridgeInventory = [...demoDetectedItems];
+  fridgeInventory = [...cleanedItems];
   detectedItems.querySelectorAll("input").forEach((input) => {
     input.addEventListener("change", () => {
       fridgeInventory = [...detectedItems.querySelectorAll("input:checked")].map((item) => item.value);
