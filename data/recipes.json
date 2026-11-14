@@ -1,0 +1,74 @@
+[
+  {
+    "id": "handvo",
+    "name": "Handvo",
+    "image": "/recipes/Handvo.jpeg",
+    "ingredients": ["rice", "lentils", "yogurt", "carrot"],
+    "diet": ["vegetarian"],
+    "prepMinutes": 55,
+    "mealType": "dinner"
+  },
+  {
+    "id": "margherita-chicken-pasta",
+    "name": "Margherita Chicken Pasta",
+    "image": "/recipes/Margherita Chiken paasta.jpeg",
+    "ingredients": ["chicken", "pasta", "tomatoes", "mozzarella"],
+    "diet": [],
+    "prepMinutes": 35,
+    "mealType": "dinner"
+  },
+  {
+    "id": "mini-ghevar",
+    "name": "Mini Ghevar",
+    "image": "/recipes/MiniGhevar.jpeg",
+    "ingredients": ["flour", "sugar", "ghee", "milk"],
+    "diet": ["vegetarian"],
+    "prepMinutes": 45,
+    "mealType": "dessert"
+  },
+  {
+    "id": "rabdi",
+    "name": "Rabdi",
+    "image": "/recipes/Rabdi.jpeg",
+    "ingredients": ["milk", "sugar", "cardamom", "pistachios"],
+    "diet": ["vegetarian"],
+    "prepMinutes": 40,
+    "mealType": "dessert"
+  },
+  {
+    "id": "tacos",
+    "name": "Tacos",
+    "image": "/recipes/Taco.jpeg",
+    "ingredients": ["tortillas", "beans", "cabbage", "lime"],
+    "diet": ["vegetarian"],
+    "prepMinutes": 25,
+    "mealType": "dinner"
+  },
+  {
+    "id": "stuffed-garlic-bread",
+    "name": "Stuffed Garlic Bread",
+    "image": "/recipes/WheatstuffedGarlicBread.jpeg",
+    "ingredients": ["bread", "garlic", "butter", "cheese"],
+    "diet": ["vegetarian"],
+    "prepMinutes": 30,
+    "mealType": "side"
+  },
+  {
+    "id": "stuffed-garlic-bread-herb",
+    "name": "Herbed Stuffed Garlic Bread",
+    "image": "/recipes/WheatstuffedGarlicBread1.jpeg",
+    "ingredients": ["bread", "garlic", "butter", "mixed herbs"],
+    "diet": ["vegetarian"],
+    "prepMinutes": 30,
+    "mealType": "side"
+  },
+  {
+    "id": "stuffed-garlic-bread-cheese",
+    "name": "Cheesy Wheat Garlic Bread",
+    "image": "/recipes/WheatstuffedGarlicBread2.jpeg",
+    "ingredients": ["wheat bread", "garlic", "butter", "cheese"],
+    "diet": ["vegetarian"],
+    "prepMinutes": 35,
+    "mealType": "side"
+  }
+]

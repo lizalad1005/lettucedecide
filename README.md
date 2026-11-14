@@ -24,4 +24,6 @@ Place photos in `public/recipes/`, for example `public/recipes/pasta.jpg`, and r
 - Upload ingredient photos and remove ingredients already on hand
 - Ask Lettuce follow-up questions
 
+Recipe data is stored in [`data/recipes.json`](data/recipes.json), including each dish's image, ingredients, dietary tags, preparation time, and meal type.
+
 The ingredient-photo flow currently uses a transparent demo detection list that the user can confirm or uncheck. It is ready for a vision-model API connection in the next iteration.
