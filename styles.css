@@ -27,9 +27,11 @@ button:hover { background: #1d572b; }
 .results { padding-top: 56px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
 .meal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.meal-card { min-height: 150px; padding: 18px; border-radius: 18px; background: #276d37; color: white; }
+.meal-card { min-height: 210px; overflow: hidden; border-radius: 18px; background: #276d37; color: white; }
 .meal-card:nth-child(2n) { background: #dcebd1; color: #203027; }
-.meal-card small { display: block; margin-bottom: 26px; opacity: .72; font-weight: 800; text-transform: uppercase; }
+.meal-card img { display: block; width: 100%; height: 112px; object-fit: cover; }
+.meal-card-content { padding: 14px 16px 16px; }
+.meal-card small { display: block; margin-bottom: 12px; opacity: .72; font-weight: 800; text-transform: uppercase; }
 .meal-card h3 { margin: 0; font-size: 1.05rem; }
 .lower-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
 .panel { padding: 24px; }
