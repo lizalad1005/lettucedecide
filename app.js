@@ -38,6 +38,7 @@ const fallbackRecipes = [
 let activeRecipes = fallbackRecipes;
 let recipeCatalog = fallbackRecipes;
 let fridgeInventory = [];
+let planningRound = 0;
 let ingredientFiles = [];
 let recipeCardFile = null;
 
@@ -178,12 +179,28 @@ function parseRecipes() {
   if (!lines.length) return fallbackRecipes;
   return lines.map((line, index) => {
     const [namePart, ingredientsPart = "seasonal vegetables"] = line.split("—");
+    const name = namePart.trim() || `Recipe ${index + 1}`;
+    const catalogRecipe = recipeCatalog.find((recipe) => recipe.name.toLowerCase() === name.toLowerCase());
     return {
-      name: namePart.trim() || `Recipe ${index + 1}`,
+      ...(catalogRecipe || {}),
+      name,
       ingredients: ingredientsPart.split(",").map((item) => item.trim()).filter(Boolean),
-      image: recipeCatalog[index % recipeCatalog.length].image,
+      image: catalogRecipe?.image || recipeCatalog[index % recipeCatalog.length].image,
     };
   });
+}
+
+function chooseWeeklyRecipes(recipes) {
+  if (!recipes.length) return fallbackRecipes;
+  const available = fridgeInventory.map((item) => item.toLowerCase());
+  const rotation = planningRound % recipes.length;
+  const ranked = recipes.map((recipe, index) => {
+    const matches = recipe.ingredients.filter((ingredient) => available.some((item) => ingredient.toLowerCase().includes(item) || item.includes(ingredient.toLowerCase()))).length;
+    const rotatedIndex = (index - rotation + recipes.length) % recipes.length;
+    return { recipe, score: matches * 100 - (recipe.prepMinutes || 30), rotatedIndex, matches };
+  }).sort((a, b) => b.score - a.score || a.rotatedIndex - b.rotatedIndex);
+  planningRound += 1;
+  return ranked.slice(0, Math.min(7, ranked.length)).map((item) => item.recipe);
 }
 
 function renderPlan(recipes) {
@@ -203,7 +220,7 @@ function renderPlan(recipes) {
     ? neededIngredients.map((item) => `<li>${item}</li>`).join("")
     : "<li>You already have everything needed.</li>";
   const inventoryNote = fridgeInventory.length ? ` I left ${fridgeInventory.length} detected fridge items off the list.` : "";
-  decisionSummary.textContent = `I chose ${recipes.length} recipes and repeated them strategically so your week has variety without creating a huge shopping trip.${inventoryNote}`;
+  decisionSummary.textContent = `I chose ${recipes.length} recipes by matching your available ingredients, prep time, and variety.${inventoryNote}`;
   results.hidden = false;
   results.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -223,7 +240,7 @@ mealPlan.addEventListener("click", (event) => {
 });
 closeRecipeDetail.addEventListener("click", () => { recipeDetail.hidden = true; });
 
-planButton.addEventListener("click", () => renderPlan(parseRecipes()));
+planButton.addEventListener("click", () => renderPlan(chooseWeeklyRecipes(parseRecipes())));
 resetButton.addEventListener("click", () => { results.hidden = true; recipeInput.focus(); });
 
 function addMessage(type, message) {
@@ -244,7 +261,7 @@ askForm.addEventListener("submit", (event) => {
 
   if (normalizedQuestion.includes("vegetarian") || normalizedQuestion.includes("veggie")) {
     const vegetarianRecipes = activeRecipes.filter((recipe) => !/chicken|beef|pork|fish|shrimp|meat/i.test(recipe.name));
-    renderPlan(vegetarianRecipes.length ? vegetarianRecipes : recipeCatalog.filter((recipe) => recipe.name !== "Margherita chicken pasta"));
+    renderPlan(chooseWeeklyRecipes(vegetarianRecipes.length ? vegetarianRecipes : recipeCatalog.filter((recipe) => recipe.name !== "Margherita chicken pasta")));
     decisionSummary.textContent = "I removed the meat-based option and rebuilt the week around vegetarian recipes.";
     response = "Done — I rebuilt the plan around vegetarian recipes and refreshed the shopping list.";
   } else if (normalizedQuestion.includes("swap") || normalizedQuestion.includes("change")) {
