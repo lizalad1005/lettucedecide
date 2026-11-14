@@ -29,9 +29,10 @@ h2 { margin-bottom: 8px; color: #193b25; letter-spacing: -0.035em; }
 .recipe-card-upload { border-top: 1px solid #e2e9df; padding-top: 24px; }
 .ai-status { min-height: 1.2em; margin: 0; color: #56705a; font-size: .88rem; }
 .upload-icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: #276d37; color: #fff; font-size: 1.4rem; font-weight: 400; }
-.fridge-preview { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; padding: 14px; border-radius: 16px; background: #eef4e9; }
-.ingredient-image-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.ingredient-image-grid img { width: 90px; height: 100px; border-radius: 12px; object-fit: cover; }
+.fridge-preview { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); gap: 20px; align-items: center; padding: 14px; border-radius: 16px; background: #eef4e9; }
+.ingredient-image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); min-width: 0; gap: 8px; }
+.ingredient-image-grid img { width: 100%; max-width: 110px; height: 100px; border-radius: 12px; object-fit: cover; }
+.fridge-preview > div:last-child { min-width: 0; }
 .fridge-preview p { margin: 5px 0 10px; font-size: .86rem; }
 .detected-items { display: flex; flex-wrap: wrap; gap: 8px; }
 .detected-item { padding: 6px 9px; border-radius: 999px; background: #fff; color: #31563a; font-size: .82rem; }
