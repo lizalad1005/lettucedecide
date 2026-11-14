@@ -32,6 +32,10 @@ h2 { margin-bottom: 8px; color: #193b25; letter-spacing: -0.035em; }
 .detected-item input { width: auto; margin: 0 4px 0 0; }
 textarea, input { width: 100%; border: 1px solid #ccd7ca; border-radius: 14px; background: #fbfcf8; color: #203027; outline: none; padding: 14px 16px; }
 textarea:focus, input:focus { border-color: #61a951; box-shadow: 0 0 0 3px rgba(97,169,81,.15); }
+.recipe-gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.recipe-photo-card { overflow: hidden; border: 1px solid #dfe4da; border-radius: 14px; background: #fff; }
+.recipe-photo-card img { display: block; width: 100%; height: 76px; object-fit: cover; }
+.recipe-photo-card span { display: block; overflow: hidden; padding: 8px; color: #4d5f50; font-size: .75rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
 button { border: 0; border-radius: 999px; background: #276d37; color: white; font-weight: 800; padding: 13px 20px; }
 button:hover { background: #1d572b; }
 .secondary-button { background: #e8eee4; color: #276d37; }
@@ -56,5 +60,5 @@ button:hover { background: #1d572b; }
 .user-message { justify-self: end; background: #276d37; color: white; }
 #ask-form { display: flex; gap: 8px; }
 #ask-form input { min-width: 0; }
-@media (max-width: 760px) { .meal-grid, .lower-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) { .meal-grid, .lower-grid { grid-template-columns: 1fr 1fr; } .recipe-gallery { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 520px) { .app-shell { padding-top: 24px; } .meal-grid, .lower-grid { grid-template-columns: 1fr; } .section-heading { align-items: start; flex-direction: column; } #ask-form { flex-direction: column; } .fridge-preview { grid-template-columns: 1fr; } .fridge-preview img { width: 100%; height: 150px; } }

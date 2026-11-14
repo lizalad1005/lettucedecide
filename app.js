@@ -13,6 +13,7 @@ const fridgePreview = document.querySelector("#fridge-preview");
 const fridgeImage = document.querySelector("#fridge-image");
 const uploadLabel = document.querySelector("#upload-label");
 const detectedItems = document.querySelector("#detected-items");
+const recipeGallery = document.querySelector("#recipe-gallery");
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const fallbackRecipes = [
@@ -51,6 +52,12 @@ fridgePhoto.addEventListener("change", () => {
 });
 
 recipeInput.value = fallbackRecipes.map((recipe) => `${recipe.name} — ${recipe.ingredients.join(", ")}`).join("\n");
+recipeGallery.innerHTML = fallbackRecipes.map((recipe) => `
+  <article class="recipe-photo-card">
+    <img src="${recipe.image}" alt="${recipe.name}" />
+    <span>${recipe.name}</span>
+  </article>
+`).join("");
 
 function parseRecipes() {
   const lines = recipeInput.value.split("\n").map((line) => line.trim()).filter(Boolean);
